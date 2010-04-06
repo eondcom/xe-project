@@ -117,13 +117,13 @@
             $project_logo = Context::get('project_logo');
             if($project_logo['name']) {
                 $logo_src = 'files/attach/project_logo/'.$reserve_srl.'.jpg';
-                FileHandler::createImageFile($project_logo['tmp_name'], $logo_src,200,40,'jpg','crop');
+				FileHandler::copyfile($project_logo['tmp_name'], $logo_src);
             }
 
             $project_banner = Context::get('project_banner');
             if($project_banner['name']) {
                 $banner_src = 'files/attach/project_banner/'.$reserve_srl.'.jpg';
-                FileHandler::createImageFile($project_banner['tmp_name'], $banner_src,180,140,'jpg','crop');
+				FileHandler::copyfile($project_banner['tmp_name'], $banner_src);
             }
 
             Context::set('redirect_mode', 'reserve');
@@ -237,7 +237,7 @@
             $project_banner = Context::get('project_banner');
             if($project_banner['name']) {
                 $banner_src = 'files/attach/project_banner/'.$project_info->site_srl.'.jpg';
-                FileHandler::createImageFile($project_banner['tmp_name'], $banner_src,60,60,'jpg','crop');
+				FileHandler::copyfile($project_banner['tmp_name'], $banner_src);
             }
 
             $this->setTemplatePath($this->module_path.'tpl');
@@ -353,13 +353,13 @@
             $project_logo = Context::get('project_logo');
             if($project_logo['name']) {
                 $logo_src = 'files/attach/project_logo/'.$project_info->site_srl.'.jpg';
-                FileHandler::createImageFile($project_logo['tmp_name'], $logo_src,200,40,'jpg','crop');
+				FileHandler::copyfile($project_logo['tmp_name'], $logo_src);
             }
 
             $project_banner = Context::get('project_banner');
             if($project_banner['name']) {
                 $banner_src = 'files/attach/project_banner/'.$project_info->site_srl.'.jpg';
-                FileHandler::createImageFile($project_banner['tmp_name'], $banner_src,180,140,'jpg','crop');
+				FileHandler::copyfile($project_banner['tmp_name'], $banner_src);
             }
 
             // 디렉토리 등록
