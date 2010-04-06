@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">Project 기본 Skin</title>
+    <description xml:lang="ko">
+        Project 기본 스킨입니다.
+    </description>
+    <version>0.1</version>
+    <date>2009-06-04</date>
+
+    <author email_address="zero@xpressengine.com" link="http://blog.nzeo.com">
+        <name xml:lang="ko">zero</name>
+    </author>
+
+    <license>GPL</license>
+
+    <colorset>
+        <color name="default">
+            <title xml:lang="ko">기본</title>
+        </color>
+    </colorset>
+</skin>

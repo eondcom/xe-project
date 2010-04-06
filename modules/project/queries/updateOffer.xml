@@ -1,0 +1,13 @@
+<query id="updateOffer" action="update">
+    <tables>
+        <table name="project_offer" />
+    </tables>
+    <columns>
+        <column name="title" var="title" notnull="notnull" />
+        <column name="content" var="content" notnull="notnull" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="site_srl" var="site_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="offer_srl" var="offer_srl" filter="number" notnull="notnull" pipe="and" />
+    </conditions>
+</query>
