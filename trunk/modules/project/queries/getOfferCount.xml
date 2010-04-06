@@ -1,0 +1,8 @@
+<query id="getOfferCount" action="select">
+    <tables>
+        <table name="project_offer" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="count" />
+    </columns>
+</query>

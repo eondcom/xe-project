@@ -1,0 +1,12 @@
+<query id="getOffer" action="select">
+    <tables>
+        <table name="project_offer" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="site_srl" var="site_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="offer_srl" var="offer_srl" filter="number" notnull="notnull" pipe="and"/>
+    </conditions>
+</query>

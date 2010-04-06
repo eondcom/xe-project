@@ -1,0 +1,12 @@
+<query id="getNews" action="select">
+    <tables>
+        <table name="project_news" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="site_srl" var="site_srl" filter="number" />
+        <condition operation="equal" column="news_srl" var="news_srl" filter="number" notnull="notnull" pipe="and"/>
+    </conditions>
+</query>

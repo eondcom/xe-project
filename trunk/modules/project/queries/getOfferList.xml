@@ -1,0 +1,29 @@
+<query id="getOfferList" action="select">
+    <tables>
+        <table name="project_offer" alias="offer"/>
+        <table name="projects" alias="projects"/>
+        <table name="sites" alias="sites"/>
+    </tables>
+    <columns>
+        <column name="offer.*" />
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="projects.title" alias="project_title" />
+        <column name="projects.description" alias="project_description" />
+        <column name="sites.domain" alias="domain" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="offer.site_srl" var="site_srl" filter="number" />
+        <condition operation="equal" column="projects.site_srl" default="offer.site_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" pipe="and" />
+        <group pipe="and">
+            <condition operation="like" column="offer.title" var="search_keyword" />
+            <condition operation="like" column="offer.content" var="search_keyword" pipe="or"/>
+        </group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="offer.list_order" order="asc" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

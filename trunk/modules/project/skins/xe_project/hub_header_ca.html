@@ -1,0 +1,33 @@
+<!--%import("css/pxeHub.css")-->
+<!--%import("js/tab.js")-->
+<!--%import("js/select.js")-->
+<!--%import("js/project.js")-->
+{@ $gnb = array(); }
+{@ $gnb["dispProjectMySummary"] = array("m1", "s1"); }
+{@ $gnb["dispProjectSummary"] = array("m2", "s1"); }
+
+<div class="pxeHub pxeCa">
+	<!-- .pxeHeader -->
+	<div class="pxeHeader">
+		<ul class="pxeGnb {$gnb[$act][0]} {$gnb[$act][1]}">
+			<!--@if($logged_info)-->
+			<li class="m1"><a href="{getUrl('','mid',$mid,'act','dispProjectMySummary')}"><span>내 프로젝트</span></a>
+				<ul>
+					<li class="s1"><a href="{getUrl('','mid',$mid,'act','dispProjectMySummary')}">내 프로젝트 요약</a></li>
+					<li class="s2"><a href="{getUrl('','mid',$mid,'act','dispProjectMyPlan')}">내 프로젝트 일정</a></li>
+					<li class="s3"><a href="{getUrl('','mid',$mid,'act','dispProjectMyActivity')}">내 활동 기록</a></li>
+				</ul>
+			</li>
+			<!--@end-->
+			<li class="m2"><a href="{getUrl('','mid',$mid,'act','dispProjectSummary')}"><span>모든 프로젝트</span></a>
+				<ul>
+					<li class="s1"><a href="{getUrl('','mid',$mid,'act','dispProjectSummary')}">모든 프로젝트 요약</a></li>
+					<li class="s2"><a href="{getUrl('','mid',$mid,'act','dispProjectPlan')}">모든 프로젝트 일정</a></li>
+					<li class="s3"><a href="{getUrl('','mid',$mid,'act','dispProjectSearch')}">프로젝트 검색</a></li>
+				</ul>
+			</li>
+			<li class="m3"><a href="{getUrl('','mid',$mid,'act','dispProjectDownloadSearch')}"><span>다운로드</span></a></li>
+			<li class="m4"><a href="{getUrl('','mid',$mid,'act','dispProjectContributors')}"><span>공헌자</span></a></li>
+		</ul>
+	</div>
+	<!-- /.pxeHeader -->
