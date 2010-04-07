@@ -743,6 +743,7 @@ ul.pData li{ font-size:12px; margin:0 0 5px 0;}
 
 /* issue */
 .issuetracker .menu { display:none; }
+html, body{ height:100%;}
 .mwLogin{ display:none; position:fixed; _position:absolute; top:0; left:0; width:100%; height:100%; z-index:10000;}
 .mwLogin.open{ display:block;}
 .mwLogin .bg{ position:absolute; top:0; left:0; width:100%; height:100%; background:#000; opacity:.5; filter:alpha(opacity=50);}
