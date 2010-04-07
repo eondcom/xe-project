@@ -61,7 +61,7 @@
 						<td>{$news->type}</td>
 						<!--@end-->
 						<!--@if($news->type == "d")-->
-						<td class="title"><a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">{$news->item->title}</a></td>
+						<td class="title"><!--@if($news->item->status)--><em class="status {$news->item->status}">{$news->item->status}</em> <!--@end--><a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">{$news->item->title}</a></td>
 						<!--@elseif($news->type == "c")-->
 						<td class="title"><a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}#{$news->item->comment_srl}">{$news->item->title}</a></td>
 						<!--@elseif($news->type == "s")-->
