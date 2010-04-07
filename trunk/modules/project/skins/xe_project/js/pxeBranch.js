@@ -83,6 +83,6 @@ jQuery(function($){
 	aside_li.find('div.sub>ul').mouseleave(hide_aside);
 
 	// Hide Menu & Aside
-	$('*:not(".menu a")').focus(hide_menu).focus(hide_aside);
+	$('*:not(".menu *")').focus(hide_menu).focus(hide_aside);
 	
 });
