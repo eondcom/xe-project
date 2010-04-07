@@ -90,6 +90,13 @@
 			{
 				$res[$doc->document_srl] = $doc;
 			}
+			$args2->target_srl = $document_srls;
+			$output = executeQueryArray("issuetracker.getIssues", $args2);
+			if(!$output->data) return;
+			foreach($output->data as $doc)
+			{
+				$res[$doc->document_srl] = $doc;
+			}
 		}
 
 		function _populateComments($list, &$res)
@@ -107,7 +114,6 @@
 			$args->target_srl = implode(",", $list);
 			//$output = executeQueryArray("project.getIssueHistories", $args);
 			$output = executeQueryArray("issuetracker.getIssues", $args);
-			debugPrint($output);
 			if(!$output->data) return;
 			foreach($output->data as $com)
 			{
@@ -161,6 +167,7 @@
 				foreach($output->data as $item)
 				{
 					if($item->type == "s") $types["s"][] = $item->target_srl.".".$item->site_srl; 
+					else if($item->type == "a") $types["d"][] = $item->target_srl;
 					else $types[$item->type][] = $item->target_srl;
 					$sites[$item->site_srl] = 1;
 				}
@@ -169,7 +176,7 @@
 				if(count($types["c"]) > 0) $this->_populateComments($types["c"], $res);
 				if(count($types["D"]) > 0) $this->_populateReleases($types["D"], $res);
 				if(count($types["s"]) > 0) $this->_populateRevisions($types["s"], $res);
-				if(count($types["a"]) > 0) $this->_populateAssigns($types["a"], $res);
+				//if(count($types["a"]) > 0) $this->_populateAssigns($types["a"], $res);
 				
 				foreach($output->data as $key=>$item)
 				{

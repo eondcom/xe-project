@@ -40,7 +40,7 @@
 				<dl>
 					<!--@foreach($news_list as $news)-->
 					<!--@if($news->type == "d")-->
-					<dt><a href="{getSiteUrl('', 'document_srl', $news->item->document_srl)}">{$news->item->title}</a> <span class="feedback">[<strong>{$news->item->comment_count}</strong>]</span></dt>
+					<dt><!--@if($news->item->status)--><em class="status {$news->item->status}">{$news->item->status}</em> <!--@end--><a href="{getSiteUrl('', 'document_srl', $news->item->document_srl)}">{$news->item->title}</a> <span class="feedback">[<strong>{$news->item->comment_count}</strong>]</span></dt>
 					<dd class="description">{cut_str(strip_tags($news->item->content), 800, '...') }</dd>
 					<dd class="meta"><em>{$modules[$news->item->module_srl]}</em> <span class="time">{zdate($news->regdate, "Y.m.d")}</span> <span class="author">{$news->item->nick_name}</span></dd>
 					<!--@elseif($news->type == "c")-->

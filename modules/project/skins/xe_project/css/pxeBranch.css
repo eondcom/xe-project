@@ -780,12 +780,12 @@ html, body{ height:100%;}
 #login.oLogin .oLogin{ display:block;}
 #login .close{ position:absolute; top:0; right:0; width:25px; height:25px; border:0; padding:0; background:transparent; overflow:visible; cursor:pointer; text-align:center; font:11px/25px Verdana, Geneva, sans-serif; color:#ccc; text-decoration:none !important;}
 
-td .status{ display:inline-block; padding:3px 2px 2px; margin:-2px 0; font-size:11px; color:#fff; background:#ddd;}
-td .status.none,
-td .status.defer,
-td .status.duplicate{ background:#ddd;}
-td .status.new,
-td .status.reopen{ background:#ef7589;}
-td .status.reviewing{ background:#d9d18f;}
-td .status.assign{ background:#8fccd9;}
-td .status.resolve{ background:#7cd039;}
+em.status{ display:inline-block; padding:3px 2px 2px; margin:-2px 0; font-size:11px; color:#fff; background:#ddd; font-weight:normal;}
+em.status.none,
+em.status.defer,
+em.status.duplicate{ background:#ddd;}
+em.status.new,
+em.status.reopen{ background:#ef7589;}
+em.status.reviewing{ background:#d9d18f;}
+em.status.assign{ background:#8fccd9;}
+em.status.resolve{ background:#7cd039;}
