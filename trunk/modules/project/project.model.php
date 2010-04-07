@@ -104,12 +104,14 @@
 
 		function _populateAssigns($list, &$res)
 		{
-			$args->issues_history_srls = implode(",", $list);
-			$output = executeQueryArray("project.getIssueHistories", $args);
+			$args->target_srl = implode(",", $list);
+			//$output = executeQueryArray("project.getIssueHistories", $args);
+			$output = executeQueryArray("issuetracker.getIssues", $args);
+			debugPrint($output);
 			if(!$output->data) return;
 			foreach($output->data as $com)
 			{
-				$res[$com->issues_history_srl] = $com;
+				$res[$com->target_srl] = $com;
 			}
 		}
 
