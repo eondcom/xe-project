@@ -117,6 +117,7 @@
 
 		function _populateRevisions($list, &$res)
 		{
+            $oIssuetrackerModel =& getModel('issuetracker');
 			$revisions = array();
 			foreach($list as $targets)
 			{
@@ -132,6 +133,7 @@
 				if(!$output->data) continue;
 				foreach($output->data as $rev)
 				{
+                    $rev->message = $oIssuetrackerModel->_linkXE(htmlspecialchars($rev->message));
 					$res[$rev->revision.".".$args->site_srl] = $rev;
 				}
 			}

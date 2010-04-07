@@ -755,6 +755,7 @@
         }
 
 		function recalculateContribute() {
+            return;
 			$args->type="a";
 			$output = executeQueryArray("project.getNewItemsInType", $args);
 			foreach($output->data as $data)
