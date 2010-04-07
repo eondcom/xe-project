@@ -556,12 +556,24 @@
 			$oProjectModel =& getModel('project');
 			$project_info = $oProjectModel->getProjectInfo($site_module_info->site_srl);
 			if(!$project_info) return;
+
+			
+
 			$args->site_srl = $site_module_info->site_srl;
 			$args->target_srl = $obj->document_srl;
 			$args->type = "d";
 			$logged_info = Context::get('logged_info');
 			$args->member_srl = $logged_info->member_srl;
 			executeQuery("project.insertNewItem", $args);
+
+			$output = executeQuery("issuetracker.getIssue", $args);
+			if($output->data && $output->data->assignee_srl && $output->data->assignee_srl != $args->member_srl)
+			{
+				$args2 = clone($args);
+				$args2->member_srl = $output->data->assignee_srl;
+				$args2->type ="a";
+				$output2 = executeQuery("project.insertNewItem", $args2);
+			}
 
 			if(!$logged_info) return;
 			$args->member_srl = $logged_info->member_srl;
@@ -703,7 +715,7 @@
 			$oMemberModel =& getModel('member');
 			$member_srl = $oMemberModel->getMemberSrlByNickName($history["assignee"][1]);
 			if(!$member_srl) return;
-			$args->target_srl = $obj->issues_history_srl; 
+			$args->target_srl = $obj->target_srl;
 			$args->type = "a";
 			$args->member_srl = $member_srl;
 			$args->site_srl = $project_info->site_srl;
@@ -743,6 +755,20 @@
         }
 
 		function recalculateContribute() {
+			$args->type="a";
+			$output = executeQueryArray("project.getNewItemsInType", $args);
+			foreach($output->data as $data)
+			{
+				$args = null;
+				$args->issues_history_srls = $data->target_srl;
+				$output2 = executeQuery("project.getIssueHistories", $args);
+				if($output2->data)
+				{
+					$args->orig_target_srl = $data->target_srl;	
+					$args->target_srl = $output2->data->document_srl;
+					$output2 = executeQuery("project.updateNewItem", $args);
+				}
+			}
             return;
 			$output = executeQuery("project.deleteContribute");	
 			$output = executeQueryArray("project.getProjects");
