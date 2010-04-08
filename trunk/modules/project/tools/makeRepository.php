@@ -26,11 +26,24 @@
     if(substr($args['svn_target'],-1)!='/') $args['svn_target'].='/';
 
     $output = $oProjectModel->getProjectData();
+    $project_config = $oProjectModel->getConfig();
+    $server_name_orig = $project_config->repos_url;
+    $server_name_arr = explode("/", $server_name_orig);
+    $server_name = array_shift($server_name_arr);
+    if(count($server_name_arr))
+    {
+        $location_prefix = "/".implode("/", $server_name_arr);
+    }
+    else
+    {
+        $location_prefix = "";
+    }
+    
     if(count($output)) {
         $vhost_file = $args['vhost_file'];
         $vhost_buff = sprintf("<VirtualHost *:%d>\n\tServerName %s\n\tDocumentRoot %s",
                 $args['vhost_port'],
-                $args['server_name'],
+                $server_name,
                 $args['document_root']
         );
 
@@ -62,7 +75,8 @@
             }
 
             // write vhost file
-            $vhost_buff .= sprintf("\n\t<Location /%s>\n\t\tDAV svn\n\t\tSVNPath %s\n\t\tAuthzSVNAccessFile %s\n\t\tAuthType Basic\n\t\tAuthName \"%s\"\n\t\tAuthUserFile %s\n\t\t<LimitExcept GET PROPFIND OPTIONS REPORT>\n\t\tRequire valid-user\n\t</LimitExcept>\n\t</Location>",
+            $vhost_buff .= sprintf("\n\t<Location %s/%s>\n\t\tDAV svn\n\t\tSVNPath %s\n\t\tAuthzSVNAccessFile %s\n\t\tAuthType Basic\n\t\tAuthName \"%s\"\n\t\tAuthUserFile %s\n\t\t<LimitExcept GET PROPFIND OPTIONS REPORT>\n\t\tRequire valid-user\n\t</LimitExcept>\n\t</Location>",
+                $location_prefix,
                 $repos_id,
                 $svn_path,
                 $svn_auth_file,
