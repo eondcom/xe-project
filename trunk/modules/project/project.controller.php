@@ -376,6 +376,14 @@
                 }
             }
 
+			$colorset = Context::get('colorset');
+			if($colorset) 
+			{
+				$oModuleController =& getController('module');
+				$module_config->colorset = $colorset;
+				$oModuleController->insertModulePartConfig("project", $project_info->site_srl, $module_config);
+			}
+
             $this->setTemplatePath($this->module_path.'tpl');
             $this->setTemplateFile('redirect.html');
         }
@@ -434,6 +442,9 @@
             Context::set('project_info', $project_info);
             $project_config = $oProjectModel->getConfig();
             Context::set('project_config', $project_config);
+            $project_site_config = $oProjectModel->getConfig($site_module_info->site_srl);
+            Context::set('project_site_config', $project_site_config);
+
 
             // 일단 레이아웃을 있음으로 변경
             Context::set('layout',null);

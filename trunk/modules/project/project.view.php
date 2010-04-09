@@ -29,6 +29,11 @@
             // 프로젝트 정보를 추출하여 세팅
             $this->project_info = $oProjectModel->getProjectInfo($this->site_srl);
             Context::set('project_info', $this->project_info);
+			if($this->site_srl)
+			{
+				$project_site_config = $oProjectModel->getConfig($this->site_srl);
+				Context::set('project_site_config', $project_site_config);
+			}
 
             // 메인페이지가 아니고 Project Action인 경우 사이트 관리 권한이 없으면 접근 금지
             if(!in_array($this->act, array('dispProjectMyProjectActivity', 'dispProjectMyActivity', 'dispProjectContributors', 'dispProjectPlan', 'dispProjectMyPlan', 'dispProjectSummary', 'dispProjectMySummary', 'dispProjectDownloadSearch', 'dispProjectSearch', 'dispProjectIndex','dispProjectMember','dispProjectNews','dispProjectPostNews','dispProjectCreateProject','dispProjectOffer','dispProjectPostOffer','dispProjectOffer','dispProjectAccountManage')) && strpos($this->act,'Project')!==false) {
@@ -800,7 +805,8 @@
             $oProjectModel = &getModel('project');
 
             $project_config = $oProjectModel->getConfig($this->site_srl);
-            Context::set('project_config', $project_config);
+            $project_config2 = $oProjectModel->getConfig();
+            Context::set('project_site_config', $project_config);
 
             // 디렉토리 구함
             $directories = $oProjectModel->getProjectDirectories(0);
@@ -812,6 +818,15 @@
                 }
             }
             Context::set('directories', $directories);
+			$oModuleModel =& getModel('module');	
+			$skin_info = $oModuleModel->loadSkinInfo($this->module_path, $project_config2->skin);
+			if($skin_info->colorset)
+			{
+				Context::set('colorset', $skin_info->colorset);
+			}
+
+            $oModuleModel = &getModel('module');
+
 
             $this->setTemplateFile('project_setup');
         }
