@@ -92,7 +92,12 @@
 				$page = 1;
 				Context::set('page',$page);
 			}
-			$output = $oModel->getNewItems($page, null, $logged_info->member_srl);
+			$site_module_info = Context::get('site_module_info');
+			if($site_module_info && $site_module_info->site_srl)
+			{
+				$site_srl = $site_module_info->site_srl;
+			}
+			$output = $oModel->getNewItems($page, $site_srl, $logged_info->member_srl);
 			if(count($output->sites) > 0)
 			{
 				Context::set('projects', $oModel->getProjects(implode(",", $output->sites)));
