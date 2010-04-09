@@ -489,76 +489,7 @@
             $this->setMessage('success_saved');
         }
 
-        function procProjectInsertNews() {
-            $oProjectModel = &getModel('project');
 
-            $args = Context::gets('news_srl','title','content');
-            $args->site_srl = $this->site_srl;
-            if($args->news_srl) {
-                $output = executeQuery('project.getNews', $args);
-                if(!$output->data) unset($args->news_srl);
-            }
-
-            if($args->news_srl) $output = executeQuery('project.updateNews', $args);
-            else {
-                $args->news_srl = getNextSequence();
-                $args->list_order = -1 * $args->news_srl;
-                $output = executeQuery('project.insertNews', $args);
-            }
-            if(!$output->toBool()) return $output;
-            $this->setRedirectUrl(getSiteUrl($this->site_module_info->domain,'','act','dispProjectNews'));
-        }
-
-        function procProjectDeleteNews() {
-            $oProjectModel = &getModel('project');
-
-            $args->news_srl = Context::get('news_srl');
-            if(!$args->news_srl) return new Object(-1,'msg_invalid_request');
-            $output = executeQuery('project.getNews', $args);
-            if(!$output->data) return new Object(-1,'msg_invalid_request');
-
-            $args->site_srl = $this->site_srl;
-
-            $output = executeQuery('project.deleteNews', $args);
-            if(!$output->toBool()) return $output;
-            $this->setRedirectUrl(getSiteUrl($this->site_module_info->domain,'','act','dispProjectNews'));
-        }
-
-
-        function procProjectInsertOffer() {
-            $oProjectModel = &getModel('project');
-
-            $args = Context::gets('offer_srl','title','content');
-            $args->site_srl = $this->site_srl;
-            if($args->offer_srl) {
-                $output = executeQuery('project.getOffer', $args);
-                if(!$output->data) unset($args->offer_srl);
-            }
-
-            if($args->offer_srl) $output = executeQuery('project.updateOffer', $args);
-            else {
-                $args->offer_srl = getNextSequence();
-                $args->list_order = -1 * $args->offer_srl;
-                $output = executeQuery('project.insertOffer', $args);
-            }
-            if(!$output->toBool()) return $output;
-            $this->setRedirectUrl(getSiteUrl($this->site_module_info->domain,'','act','dispProjectOffer'));
-        }
-
-        function procProjectDeleteOffer() {
-            $oProjectModel = &getModel('project');
-
-            $args->offer_srl = Context::get('offer_srl');
-            if(!$args->offer_srl) return new Object(-1,'msg_invalid_request');
-            $output = executeQuery('project.getOffer', $args);
-            if(!$output->data) return new Object(-1,'msg_invalid_request');
-
-            $args->site_srl = $this->site_srl;
-
-            $output = executeQuery('project.deleteOffer', $args);
-            if(!$output->toBool()) return $output;
-            $this->setRedirectUrl(getSiteUrl($this->site_module_info->domain,'','act','dispProjectOffer'));
-        }
 
 		function triggerInsertDocument(&$obj) {
 			if($obj->is_notice == "Y") return;
