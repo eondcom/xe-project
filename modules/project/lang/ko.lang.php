@@ -67,6 +67,7 @@
         'dispProjectAdminCreate' => '생성',
         'dispProjectAdminConfig' => '기능 설정',
         'dispProjectAdminSkinSetup' => '메인 스킨 설정',
+        'dispProjectAdminGrantInfo' => '권한 설정',
         'dispProjectAdminDirectorySetup' => '디렉토리 설정',
     );
 	$lang->project_default_menus = array(

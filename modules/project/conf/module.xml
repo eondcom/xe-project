@@ -72,6 +72,7 @@
         <action name="dispProjectAdminDelete" type="view" standalone="true" />
         <action name="dispProjectAdminSetup" type="view" standalone="true" />
         <action name="dispProjectAdminSkinSetup" type="view" standalone="true" />
+        <action name="dispProjectAdminGrantInfo" type="view" standalone="true" />
 
         <action name="procProjectAdminCreation" type="controller" standalone="true" />
         <action name="procProjectAdminInsertConfig" type="controller" />

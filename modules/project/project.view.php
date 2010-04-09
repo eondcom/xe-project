@@ -35,6 +35,17 @@
 				Context::set('project_site_config', $project_site_config);
 			}
 
+			
+			$project_config = $oProjectModel->getConfig();
+			$module_info = $oModuleModel->getModuleInfoByMid($project_config->project_main_mid);
+			if($module_info)
+			{
+				$logged_info = Context::get('logged_info');
+				$grant = $oModuleModel->getGrant($module_info, $logged_info);
+				if(!$grant->access) return $this->stop('msg_not_permitted');
+			}
+
+
             // 메인페이지가 아니고 Project Action인 경우 사이트 관리 권한이 없으면 접근 금지
             if(!in_array($this->act, array('dispProjectMyProjectActivity', 'dispProjectMyActivity', 'dispProjectContributors', 'dispProjectPlan', 'dispProjectMyPlan', 'dispProjectSummary', 'dispProjectMySummary', 'dispProjectDownloadSearch', 'dispProjectSearch', 'dispProjectIndex','dispProjectMember','dispProjectCreateProject','dispProjectAccountManage')) && strpos($this->act,'Project')!==false) {
                 // 현재 접속 권한 체크하여 사이트 관리자가 아니면 접근 금지

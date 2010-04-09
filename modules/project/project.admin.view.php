@@ -192,6 +192,21 @@
 
             $this->setTemplateFile('delete');
         }
+
+		function dispProjectAdminGrantInfo()
+		{
+			$oProjectModel =& getModel('project');
+			$project_config = $oProjectModel->getConfig();
+			$oModuleModel =& getModel('module');
+			$module_info = $oModuleModel->getModuleInfoByMid($project_config->project_main_mid);
+			if(!$module_info) return;
+
+            $oModuleAdminModel = &getAdminModel('module');
+            $grant_content = $oModuleAdminModel->getModuleGrantHTML($module_info->module_srl, $this->xml_info->grant);
+            Context::set('grant_content', $grant_content);
+
+            $this->setTemplateFile('grant_list');
+		}
     }
 
 ?>
