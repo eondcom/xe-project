@@ -561,6 +561,7 @@
         }
 
 		function triggerInsertDocument(&$obj) {
+			if($obj->is_notice == "Y") return;
 			$site_module_info = Context::get('site_module_info');
 			if(!$site_module_info->site_srl) return;
 
