@@ -683,6 +683,20 @@
 			Context::set('news_list', $output->data);
 			Context::set('page_navigation', $output->page_navigation);
 
+			$output = executeQueryArray("project.getNotices", $c_args);
+			if($output->data)
+			{
+				$documents = array();
+				$oDocumentModel =& getModel('document');
+				foreach($output->data as $data)
+				{
+					$oDocument = $oDocumentModel->getDocument(); 
+					$oDocument->setAttribute($data, false);
+					$documents[] = $oDocument;
+				}
+				Context::set('notices', $documents);
+			}
+
             $logged_info = Context::get('logged_info');
             if(count($logged_info->group_list)) Context::set('project_join', true);
             else Context::set('project_join', false);
