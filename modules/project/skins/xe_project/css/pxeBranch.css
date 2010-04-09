@@ -371,6 +371,15 @@ a:focus{ text-decoration:underline;}
 /* noData */
 .pxeNoData{ padding-top:50px !important; padding-bottom:50px !important; text-align:center; color:#767676; border-top:1px solid #ddd; border-bottom:1px solid #ddd; margin-top:1em !important; margin-bottom:1em !important;}
 
+/* pxeNotice */
+.pxeNotice{ margin:-10px 0 30px 0; padding:0 0 10px 0; border-bottom:2px solid #ccc;}
+.pxeNotice dl{ margin:0; padding:15px 0 5px 0; background:#fafafa;}
+.pxeNotice dt,
+.pxeNotice dd{ margin-left:15px; margin-right:15px;}
+.pxeNotice dt{ font-size:14px; font-weight:bold; margin-bottom:7px;}
+.pxeNotice dt a{ vertical-align:middle;}
+.pxeNotice dd{ color:#767676; line-height:1.5; margin-bottom:10px;}
+
 /* pxeNews */
 .pxeNews{ margin:0 0 30px 0;}
 .pxeNews dl{ margin:0 0 -15px 0;}
@@ -789,3 +798,4 @@ em.status.reopen{ background:#ef7589;}
 em.status.reviewing{ background:#d9d18f;}
 em.status.assign{ background:#8fccd9;}
 em.status.resolve{ background:#7cd039;}
+em.status.notice{ background:#666;}
