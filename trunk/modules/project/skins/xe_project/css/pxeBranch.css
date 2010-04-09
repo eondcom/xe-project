@@ -379,6 +379,7 @@ a:focus{ text-decoration:underline;}
 .pxeNotice dt{ font-size:14px; font-weight:bold; margin-bottom:7px;}
 .pxeNotice dt a{ vertical-align:middle;}
 .pxeNotice dd{ color:#767676; line-height:1.5; margin-bottom:10px;}
+.pxeNotice dt .feedback{ font-weight:normal; font-size:12px; color:#f43d19;}
 
 /* pxeNews */
 .pxeNews{ margin:0 0 30px 0;}
