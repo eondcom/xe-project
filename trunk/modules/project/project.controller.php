@@ -437,6 +437,15 @@
             // 요청된 프로젝트의 정보를 구해서 레이아웃과 관련 정보를 설정
             $oModuleModel = &getModel('module');
             $oProjectModel = &getModel('project');
+			$project_config = $oProjectModel->getConfig();
+			$module_info = $oModuleModel->getModuleInfoByMid($project_config->project_main_mid);
+			if($module_info)
+			{
+				$logged_info = Context::get('logged_info');
+				$grant = $oModuleModel->getGrant($module_info, $logged_info);
+				if(!$grant->access) return $this->stop('msg_not_permitted');
+			}
+
 			$module_info = $oModuleModel->getModuleInfoByModuleSrl($site_module_info->index_module_srl);
 			$project_info = $oProjectModel->getProjectInfo($site_module_info->site_srl);
             Context::set('project_info', $project_info);
