@@ -1,10 +1,13 @@
 <!--%import("css/pxeBranch.css")-->
 <!--%import("js/pxeBranch.js")-->
 <!--%import("js/mwLogin.js")-->
+<!--@if(!$project_site_config->colorset)-->
+{@ $project_site_config->colorset = "cPurple"; }
+<!--@end-->
 <!--@if($act == "dispProject")-->
-<div id="pxeBranch" class="pxeCa cPurple">
+<div id="pxeBranch" class="pxeCa {$project_site_config->colorset}">
 <!--@else-->
-<div id="pxeBranch" class="cPurple">
+<div id="pxeBranch" class="{$project_site_config->colorset}">
 <!--@end-->
 <!-- class="cPurple | cViolet | cOrange | cGreen | cGray"-->
 

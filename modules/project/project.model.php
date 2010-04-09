@@ -470,7 +470,6 @@
 			if($sort_order == "points")
 			{
 				$output = executeQueryArray("project.getContributorByPoints", $args);	
-                debugPrint($output);
 				if(!$output->data) return $output;
 			}
 			else

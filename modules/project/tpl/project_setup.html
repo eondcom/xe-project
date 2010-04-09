@@ -1,5 +1,4 @@
 <!--%import("./filter/change_language.xml")-->
-
 <!--#include("_project_header.html")-->
 
 <h3 class="xeAdmin">{$lang->project_info}</h3>
@@ -89,6 +88,12 @@
     <!--@end-->
     <!--@end-->
     <!--@end-->
+	<!--@if($colorset)-->
+	<tr>
+		<th colspan="2">{$lang->colorset}</td>
+		<td><!--@foreach($colorset as $key=>$color)--><input type="radio" name="colorset" value="{$color->name}" id="colorset_{$key}" <!--@if($project_site_config->colorset==$color->name)-->checked="checked"<!--@end-->/><label for="colorset_{$key}">{$color->title}</label> <!--@end--></td>
+	</tr>
+	<!--@end-->
     <tr>
         <th class="button" colspan="3">
             <span class="button black strong"><input type="submit" value="{$lang->cmd_save}" /></span>
