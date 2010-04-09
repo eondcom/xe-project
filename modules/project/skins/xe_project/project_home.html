@@ -29,7 +29,7 @@
 			<div class="pxeNotice">
 				<!--@foreach($notices as $notice)-->
 				<dl>
-					<dt><em class="status notice">notice</em> <a href="{getUrl('','document_srl', $notice->document_srl)}">{$notice->getTitleText()}</a></dt>
+					<dt><em class="status notice">notice</em> <a href="{getUrl('','document_srl', $notice->document_srl)}">{$notice->getTitleText()}</a><!--@if($notice->getCommentCount())--> <span class="feedback">[<strong>{$notice->getCommentCount()}</strong>]</span><!--@endif--></dt>
 					<dd>{$notice->getContentText(400)}</dd>
 				</dl>
 				<!--@end-->
