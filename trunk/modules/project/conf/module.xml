@@ -8,8 +8,6 @@
         <permission action="dispProjectCounter" target="manager" />
         <permission action="dispProjectComponent" target="manager" />
         <permission action="dispProjectRepos" target="manager" />
-        <permission action="dispProjectPostNews" target="manager" />
-        <permission action="dispProjectPostOffer" target="manager" />
 
         <permission action="procProjectInsertProjectBanner" target="manager" />
         <permission action="procProjectChangeLanguage" target="manager" />
@@ -21,10 +19,6 @@
         <permission action="procProjectChangeIndex" target="manager" />
         <permission action="procProjectInsertRepos" target="manager" />
         <permission action="procProjectInsertCommitGroup" target="manager" />
-        <permission action="procProjectInsertNews" target="manager" />
-        <permission action="procProjectDeleteNews" target="manager" />
-        <permission action="procProjectInsertOffer" target="manager" />
-        <permission action="procProjectDeleteOffer" target="manager" />
 
         <permission action="dispProjectAccountManage" target="member" />
         <permission action="dispProjectCreateProject" target="member" />
@@ -53,10 +47,6 @@
         <action name="dispProjectRepos" type="view" standalone="true" />
         <action name="dispProjectAccountManage" type="view" standalone="true" />
         <action name="dispProjectMember" type="view" standalone="true" />
-        <action name="dispProjectNews" type="view" standalone="true" />
-        <action name="dispProjectPostNews" type="view" standalone="true" />
-        <action name="dispProjectOffer" type="view" standalone="true" />
-        <action name="dispProjectPostOffer" type="view" standalone="true" />
 
         <action name="procProjectReservation" type="controller" standalone="true" />
         <action name="procProjectReserveImages" type="controller" standalone="true" />
@@ -72,10 +62,6 @@
         <action name="procProjectInsertRepos" type="controller" standalone="true" />
         <action name="procProjectInsertCommitGroup" type="controller" standalone="true" />
         <action name="procProjectUpdateAccount" type="controller" standalone="true" />
-        <action name="procProjectInsertNews" type="controller" standalone="true" />
-        <action name="procProjectDeleteNews" type="controller" standalone="true" />
-        <action name="procProjectInsertOffer" type="controller" standalone="true" />
-        <action name="procProjectDeleteOffer" type="controller" standalone="true" />
 
         <action name="dispProjectAdminContent" type="view" standalone="true" admin_index="true" />
         <action name="dispProjectAdminReserved" type="view" standalone="true" />

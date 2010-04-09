@@ -409,12 +409,6 @@
             // 회원 그룹 삭제
             executeQuery('member.deleteSiteGroup', $args);
 
-            // 뉴스 정보 삭제
-            executeQuery('project.deleteNews', $args);
-
-            // 구인 정보 제거
-            executeQuery('project.deleteOffer', $args);
-
             // 매핑 삭제
             executeQuery('project.deleteMap', $args);
 
