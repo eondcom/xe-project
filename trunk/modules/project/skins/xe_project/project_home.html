@@ -93,12 +93,12 @@
 		
 		<!-- #pxeAside -->
 		<div id="pxeAside">
-			<span class="download"><a href="{getSiteUrl($project_info->domain,'','mid','issuetracker','act','dispIssuetrackerDownload')}">프로그램 다운로드</a></span>
+			<span class="download"><a href="{getSiteUrl($project_info->domain,'','mid','issuetracker','act','dispIssuetrackerDownload')}">{$lang->download_program}</a></span>
 			<span class="goTo"><a href="{getSiteUrl($project_info->domain,'','mid','forum','act','dispBoardWrite')}">{$lang->write_to_forum}</a></span>
 			<span class="goTo"><a href="{getSiteUrl($project_info->domain,'','mid','issuetracker','act','dispIssuetrackerNewIssue')}">{$lang->write_new_issue}</a></span>
 			
 			<div class="section">
-				<h2 class="hx">개발현황</h2>
+				<h2 class="hx">{$lang->projectmilestone}</h2>
 				<div class="tx">
 					<!--@if($milestones)-->
 					<!--@foreach($milestones as $milestone)-->
@@ -113,14 +113,14 @@
 					<p style="text-align:center;">진행중인 개발계획이 없습니다.</p>
 					<!--@end-->
 				</div>
-				<a href="{getSiteUrl('','mid','issuetracker','act','dispIssuetrackerViewMilestone')}" class="more"><span>&rsaquo;</span> 더보기</a>
+				<a href="{getSiteUrl('','mid','issuetracker','act','dispIssuetrackerViewMilestone')}" class="more"><span>&rsaquo;</span> {$lang->more}</a>
 			</div>
 			
 			<div class="section">
-				<h2 class="hx">프로젝트 정보</h2>
+				<h2 class="hx">{$lang->project_info}</h2>
 				<div class="tx">
 					<dl class="pinfo">
-						<dt>프로젝트 명</dt>
+						<dt>{$lang->project_title}</dt>
 						<dd>{$project_info->title}</dd>
 						<!--@foreach($project_info->directory as $value)-->
 						<dt>{$value->ptitle}</dt>
@@ -135,18 +135,13 @@
 			</div>
 			
 			<div class="section">
-				<h2 class="hx">회원정보</h2>
+				<h2 class="hx">{$lang->member_info}</h2>
 				<div class="tx">
 					<dl class="pmember">
-						<dt>관리자</dt>
-						<dd>{count($site_admins)}</dd>
 						<!--@foreach($member_groups as $group)-->
 						<dt>{$group->title}</dt>
 						<dd>{$group->count}</dt>
 						<!--@end-->
-						<!--
-						<dt>공헌자</dt>
-						<dd><a href="#">43</a></dd>-->
 					</dl>
 				</div>
 				<span class="total" title="Total"><span>{$member_count}</span>{$lang->member_unit}</span>
