@@ -1,10 +1,4 @@
 <?php
-    /**
-     * @file   modules/project/lang/ko.lang.php
-     * @author zero (zero@nzeo.com)
-     * @brief  ProjectXE(project) 모듈의 기본 언어팩
-     **/
-
     $lang->project = 'ProjectXE'; 
     $lang->project_id = "프로젝트 접속 ID"; 
     $lang->project_title = '프로젝트 이름';
@@ -12,8 +6,8 @@
     $lang->project_logo = '프로젝트 로고 이미지';
     $lang->project_banner = '프로젝트 배너이미지';
     $lang->item_group_grant = '보여줄 그룹';
-    $lang->project_info = '프로젝트 정보';
-    $lang->project_admin = '관리자';
+    $lang->project_info = 'Project Info.';
+    $lang->project_admin = 'Administrator';
     $lang->do_selected_member = '선택된 회원을 : ';
     $lang->project_latest_documents = '프로젝트 최신 글';
     $lang->project_latest_comments = '프로젝트 최신 댓글';
@@ -63,18 +57,18 @@
         'dispProjectAdminDirectorySetup' => '디렉토리 설정',
     );
 	$lang->project_default_menus = array(
-		'개발현황' => array('issuetracker','dispIssuetrackerViewMilestone'),
-        '위키' => array('wiki','dispWikiContent'),
-        '포럼' => array('forum','dispBoardContent'),
-        '이슈' => array('issuetracker','dispIssuetrackerViewIssue', array(
-			'이슈 열람' => array('issuetracker', 'dispIssuetrackerViewIssue'),
-			'이슈 등록' => array('issuetracker', 'dispIssuetrackerNewIssue'))
+		'Milestone' => array('issuetracker','dispIssuetrackerViewMilestone'),
+        'Wiki' => array('wiki','dispWikiContent'),
+        'Forum' => array('forum','dispBoardContent'),
+        'Issue' => array('issuetracker','dispIssuetrackerViewIssue', array(
+			'Issue List' => array('issuetracker', 'dispIssuetrackerViewIssue'),
+			'New Issue' => array('issuetracker', 'dispIssuetrackerNewIssue'))
 		),
-        '코드' => array('issuetracker','dispIssuetrackerViewSource', array(
-			'코드 열람' => array('issuetracker', 'dispIssuetrackerViewSource'))
+        'Source' => array('issuetracker','dispIssuetrackerViewSource', array(
+			'View Source' => array('issuetracker', 'dispIssuetrackerViewSource'))
 		),
-        '타임라인' => array('issuetracker','dispIssuetrackerTimeline'), 
-        '다운로드' => array('issuetracker','dispIssuetrackerDownload') );
+        'Timeline' => array('issuetracker','dispIssuetrackerTimeline'), 
+        'Download' => array('issuetracker','dispIssuetrackerDownload') );
 	
 	$lang->project_setting_menu = array(
 			'프로젝트 설정' => array('project','dispProjectManage'),
@@ -161,8 +155,8 @@
     $lang->cmd_post_offer = '새로운 구인게시물 등록';
     $lang->cmd_make_my_project = '내 프로젝트 생성';
 
-    $lang->cmd_reject_project_creation = '거부';
-    $lang->cmd_accept_project_creation = '승인';
+    $lang->cmd_reject_project_creation = 'Deny';
+    $lang->cmd_accept_project_creation = 'Approve';
 
     $lang->about_project_main_mid = '프로젝트 메인 페이지를 http://주소/ID 값으로 접속하기 위한 ID값을 입력해주세요.';
     $lang->about_project_rss = 'Project 메인페이지의 RSS 출력을 허용할 수 있습니다';
@@ -222,19 +216,19 @@
 
     $lang->msg_notify_reserved_title = '프로젝트 등록 요청';
     $lang->msg_notify_reserved_content = '프로젝트 등록 요청이 있습니다.<br/>바로 가기 : <a href="%s">%s</a><br/>';
-	$lang->date_opened = "개설일";
-	$lang->write_to_forum = "포럼쓰기";
-	$lang->write_new_issue = "이슈등록";
-	$lang->member_unit = "명";
-	$lang->profile = "프로필";
-	$lang->my_projects = "내 프로젝트";
+	$lang->date_opened = "Date Opened";
+	$lang->write_to_forum = "New Article";
+	$lang->write_new_issue = "New Issue";
+	$lang->member_unit = "person(s)";
+	$lang->profile = "Profile";
+	$lang->my_projects = "My Projects";
 	$lang->contributor_sort_order = array( "points" => "공헌지수 순", "articles" => "글 순", "comments" => "댓글 순", "commits" => "커밋 순" );
 	$lang->mysummary_sort_order = array( "point" => "공헌지수 순", "member_count" => "멤버수 순", "regdate" => "개설일 최신 순", "joindate" => "가입일 최신 순");
 	$lang->summary_sort_order = array( "point" => "활성화지수 순", "member_count" => "멤버수 순", "regdate" => "개설일 최신 순" );
 	$lang->download_sort_order = array( "download_count" => "다운로드 순", "regdate" => "등록일 최신 순", "oldregdate" => "등록일 오랜 순");
-	$lang->projectmilestone = "개발현황";
-	$lang->project_title = "프로젝트 이름";
-	$lang->my_activities = "내 활동기록";
-	$lang->project_setting = "프로젝트 설정";
-	$lang->download_program = "프로그램 다운로드";
+	$lang->projectmilestone = "Milestone";
+	$lang->project_title = "Project Title";
+	$lang->my_activities = "My Activities";
+	$lang->project_setting = "Project Setting";
+	$lang->download_program = "Download Program";
 ?>

@@ -81,9 +81,9 @@
 				<!--@if($is_logged)-->
 				<div class="aside">
 					<ul>
-						<li class="m1"><a href="{getSiteUrl($project_info->domain,'','act','dispProjectMyProjectActivity')}"><span>내 활동기록</span></a></li>
+						<li class="m1"><a href="{getSiteUrl($project_info->domain,'','act','dispProjectMyProjectActivity')}"><span>{$lang->my_activities}</span></a></li>
 						<!--@if($logged_info->is_site_admin)-->
-						<li class="m2"><a href="{getSiteUrl($project_info->domain,'','act','dispProjectManage')}"><span>프로젝트 설정</span></a>
+						<li class="m2"><a href="{getSiteUrl($project_info->domain,'','act','dispProjectManage')}"><span>{$lang->project_setting}</span></a>
 							<div class="sub">
 								<ul>
 								<!--@foreach($lang->project_setting_menu as $key => $menu)-->
