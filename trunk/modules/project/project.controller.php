@@ -501,13 +501,14 @@
 
 
 		function triggerInsertDocument(&$obj) {
-			if($obj->is_notice == "Y") return;
+			if($obj->is_notice == "Y") return new Object();
+			if($obj->is_secret == "Y") return new Object();
 			$site_module_info = Context::get('site_module_info');
 			if(!$site_module_info->site_srl) return;
 
 			$oProjectModel =& getModel('project');
 			$project_info = $oProjectModel->getProjectInfo($site_module_info->site_srl);
-			if(!$project_info) return;
+			if(!$project_info) return new Object();
 
 			
 
@@ -527,9 +528,10 @@
 				$output2 = executeQuery("project.insertNewItem", $args2);
 			}
 
-			if(!$logged_info) return;
+			if(!$logged_info) return new Object();
 			$args->member_srl = $logged_info->member_srl;
 			$this->addContribute($args);
+			return new Object();
 		}
 
 		function addContribute($args)
@@ -547,9 +549,11 @@
 
 		function triggerDeleteDocument(&$obj) {
 			$this->_deleteNewItem($obj->document_srl);
+			return new Object();
 		}
 
 		function triggerInsertComment(&$obj) {
+			if($obj->is_secret == "Y") return new Object();
 			$site_module_info = Context::get('site_module_info');
 			if(!$site_module_info->site_srl) return;
 
@@ -565,10 +569,12 @@
 			if(!$logged_info) return;
 			$args->member_srl = $logged_info->member_srl;
 			$this->addContribute($args);
+			return new Object();
 		}
 
 		function triggerDeleteComment(&$obj) {
 			$this->_deleteNewItem($obj->comment_srl);
+			return new Object();
 		}
 
 		function _deleteNewItem($target_srl)
@@ -590,6 +596,7 @@
 			$output = executeQuery("project.insertNewItem", $args);
 			$args->member_srl = 0;
 			$this->addContribute($args);
+			return new Object();
 		}
 
 		function triggerAddMemberToGroup(&$obj) {
@@ -602,6 +609,7 @@
 			$args->member_srl = 0; 
 			$args->type = "m";
 			$this->addContribute($args);
+			return new Object();
 		}
 
 		function triggerInsertChangeset(&$obj) {
@@ -624,6 +632,7 @@
 			$output = executeQuery("project.insertNewItem", $args);
 
 			$this->addContribute($args);
+			return new Object();
 		}
 
 		function triggerFileDownload(&$obj) {
@@ -650,6 +659,7 @@
 			{
 				$output =executeQuery("project.insertDailyCnt", $args);	
 			}
+			return new Object();
 		}
 
 		function triggerInsertHistory(&$obj) {
@@ -672,6 +682,7 @@
 			$args->member_srl = $member_srl;
 			$args->site_srl = $project_info->site_srl;
 			$output = executeQuery("project.insertNewItem", $args);
+			return new Object();
 		}
 
         function triggerMoveDocumentModule(&$obj)

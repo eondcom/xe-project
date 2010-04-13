@@ -88,6 +88,7 @@
 			$output2 = executeQueryArray("document.getDocuments", $args);
 			foreach($output2->data as $doc)
 			{
+				if($doc->is_secret == "Y") continue;
 				$res[$doc->document_srl] = $doc;
 			}
 			$args2->target_srl = $document_srls;
@@ -105,6 +106,7 @@
             $output = executeQueryArray('project.getComments', $args);
 			foreach($output->data as $com)
 			{
+				if($com->is_secret == "Y") continue;
 				$res[$com->comment_srl] = $com;
 			}
 		}
@@ -185,6 +187,10 @@
 						$output->data[$key]->item = $res[$item->target_srl.".".$item->site_srl];
 					else
 						$output->data[$key]->item = $res[$item->target_srl];
+					if(!$output->data[$key]->item) {
+						unset($output->data[$key]);
+						continue;
+					}
 					$module_srl = $res[$item->target_srl]->module_srl;
 					if(in_array($item->type, array("d", "c"))) $modules[$module_srl] = 1;
 				}
