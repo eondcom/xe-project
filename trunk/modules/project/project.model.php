@@ -127,6 +127,7 @@
 		{
             $oIssuetrackerModel =& getModel('issuetracker');
 			$revisions = array();
+			$oMemberModel =& getModel('member');
 			foreach($list as $targets)
 			{
 				$target_arr = explode(".", $targets);
@@ -142,6 +143,14 @@
 				foreach($output->data as $rev)
 				{
                     $rev->message = $oIssuetrackerModel->_linkXE(htmlspecialchars($rev->message));
+					if($rev->member_srl)
+					{
+						$member_info = $oMemberModel->getMemberInfoByMemberSrl($rev->member_srl);
+						if($member_info)
+						{
+							$rev->author = $member_info->nick_name;
+						}
+					}
 					$res[$rev->revision.".".$args->site_srl] = $rev;
 				}
 			}
