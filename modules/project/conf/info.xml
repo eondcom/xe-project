@@ -4,13 +4,13 @@
     <title xml:lang="en">ProjectXE</title>
 	<title xml:lang="es">ProjectXE</title>
     <title xml:lang="zh-CN">站点</title>
-    <title xml:lang="zh-TW">虛擬網站</title>
+    <title xml:lang="zh-TW">ProjectXE</title>
     <title xml:lang="jp">ProjectXE</title>
     <description xml:lang="ko">XE 내에서 Project를 분양하고 관리할 수 있는 기능을 제공합니다</description>
     <description xml:lang="en">Maintains projects in XE (it includes forum, wiki, issuetracker with svn repository) </description>
     <description xml:lang="es">XE 내에서 Project를 분양하고 관리할 수 있는 기능을 제공합니다</description>
     <description xml:lang="zh-CN">提供一种在XE内迅速建立子站点的功能。</description>
-    <description xml:lang="zh-TW">提供XE運作及管理虛擬網站的功能。</description>
+    <description xml:lang="zh-TW">Maintains projects in XE (it includes forum, wiki,issuetracker with svn repository)</description>
     <description xml:lang="jp">XEソリューションでProjectを運営・管理する機能を提供します。</description>
     <version>1.0.0</version>
     <date>2009-04-06</date>
