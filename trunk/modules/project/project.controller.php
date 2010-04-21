@@ -670,16 +670,18 @@
 			$oProjectModel =& getModel('project');
 			$project_info = $oProjectModel->getProjectInfo($module_info->site_srl);
 			if(!$project_info) return;
-			$history  = unserialize($obj->history);
-			if(!$history["assignee"]) return;
-			if(!$history["assignee"][1]) return;
 
-			$oMemberModel =& getModel('member');
-			$member_srl = $oMemberModel->getMemberSrlByNickName($history["assignee"][1]);
-			if(!$member_srl) return;
+			$args->comment_srls = $obj->comment_srl;
+			$args->type = "a";
+			$output = executeQuery("issuetracker.getHistoryChanges", $args);
+			if(!$output->data) return;
+			if(is_array($output->data)) $output->data = array_shift($output->data);
+			if(!$output->data->after) return;
+
+			$args = null;
 			$args->target_srl = $obj->target_srl;
 			$args->type = "a";
-			$args->member_srl = $member_srl;
+			$args->member_srl = $output->data->after; 
 			$args->site_srl = $project_info->site_srl;
 			$output = executeQuery("project.insertNewItem", $args);
 			return new Object();
