@@ -554,19 +554,20 @@
 
 		function triggerInsertComment(&$obj) {
 			if($obj->is_secret == "Y") return new Object();
+            if(!$obj->content || !trim($obj->content)) return new Object();
 			$site_module_info = Context::get('site_module_info');
 			if(!$site_module_info->site_srl) return;
 
 			$oProjectModel =& getModel('project');
 			$project_info = $oProjectModel->getProjectInfo($site_module_info->site_srl);
-			if(!$project_info) return;
+			if(!$project_info) return new Object();
 			$args->site_srl = $site_module_info->site_srl;
 			$args->target_srl = $obj->comment_srl;
 			$args->type = "c";
 			$logged_info = Context::get('logged_info');
 			$args->member_srl = $logged_info->member_srl;
 			$output = executeQuery("project.insertNewItem", $args);
-			if(!$logged_info) return;
+			if(!$logged_info) return new Object();
 			$args->member_srl = $logged_info->member_srl;
 			$this->addContribute($args);
 			return new Object();
