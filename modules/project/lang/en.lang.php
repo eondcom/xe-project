@@ -71,15 +71,15 @@
         'Download' => array('issuetracker','dispIssuetrackerDownload') );
 	
 	$lang->project_setting_menu = array(
-			'프로젝트 설정' => array('project','dispProjectManage'),
-			'그룹 설정' => array('project','dispProjectMemberGroupManage'),
-			'회원 관리 ' => array('project','dispProjectMemberManage'),
-			'포럼' => array('forum','dispBoardAdminInsertBoard'),
-			'이슈트래커' => array('issuetracker','dispIssuetrackerAdminProjectInfo'),
-			'위키' => array('wiki','dispWikiAdminInsertWiki'),
-			'접속 통계' => array('project','dispProjectCounter'),
-			'기능 설정' => array('project',"dispProjectComponent"),
-			'저장소 설정' => array('project',"dispProjectRepos") );
+			'Project' => array('project','dispProjectManage'),
+			'Groups' => array('project','dispProjectMemberGroupManage'),
+			'Members ' => array('project','dispProjectMemberManage'),
+			'Forum' => array('forum','dispBoardAdminInsertBoard'),
+			'Issues' => array('issuetracker','dispIssuetrackerAdminProjectInfo'),
+			'Wiki' => array('wiki','dispWikiAdminInsertWiki'),
+			'Statistics' => array('project','dispProjectCounter'),
+			'Editor/Addon' => array('project',"dispProjectComponent"),
+			'Repository' => array('project',"dispProjectRepos") );
 		
     $lang->project_default_menus_o = array(
         '처음' => array('project','', array(
