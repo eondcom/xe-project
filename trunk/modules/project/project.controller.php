@@ -600,6 +600,13 @@
 			return new Object();
 		}
 
+		function triggerDeleteRelease(&$obj) {
+			$args->target_srl = $obj->release_srl;
+			$output = executeQuery("project.deleteNewItem", $args);
+			$output = executeQuery("project.deleteDailyCnt", $args);
+			return new Object();
+		}
+
 		function triggerAddMemberToGroup(&$obj) {
 			if(!$obj->site_srl) return;
 			$oProjectModel =& getModel('project');

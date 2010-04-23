@@ -43,7 +43,7 @@
 			if(!$oModuleModel->getTrigger('file.downloadFile', 'project', 'controller', 'triggerFileDownload', 'after')) return true;
 			if(!$oModuleModel->getTrigger('issuetracker.insertHistory', 'project', 'controller', 'triggerInsertHistory', 'after')) return true;
             if(!$oModuleModel->getTrigger('document.moveDocumentModule', 'project', 'controller', 'triggerMoveDocumentModule', 'after')) return true;
-			
+			if(!$oModuleModel->getTrigger('issuetracker.deleteRelease', 'project', 'controller', 'triggerDeleteRelease', 'after')) return true;
             return false;
         }
 
@@ -110,6 +110,9 @@
 
             if(!$oModuleModel->getTrigger('document.moveDocumentModule', 'project', 'controller', 'triggerMoveDocumentModule', 'after')) 
 				$oModuleController->insertTrigger('document.moveDocumentModule', 'project', 'controller', 'triggerMoveDocumentModule', 'after'); 
+
+			if(!$oModuleModel->getTrigger('issuetracker.deleteRelease', 'project', 'controller', 'triggerDeleteRelease', 'after')) 
+				$oModuleController->insertTrigger('issuetracker.deleteRelease', 'project', 'controller', 'triggerDeleteRelease', 'after');
 
             return new Object(0, 'success_updated');
         }
