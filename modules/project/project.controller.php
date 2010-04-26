@@ -445,6 +445,13 @@
 				$grant = $oModuleModel->getGrant($module_info, $logged_info);
 				if(!$grant->access) return $this->stop('msg_not_permitted');
 			}
+			if($project_config->menu_srl) {
+				$php_file = sprintf('%sfiles/cache/menu/%d.php', _XE_PATH_, $project_config->menu_srl);
+				@include($php_file);
+				if($menu) {
+					Context::set('menu_list', $menu->list);
+				}
+			}
 
 			$module_info = $oModuleModel->getModuleInfoByModuleSrl($site_module_info->index_module_srl);
 			$project_info = $oProjectModel->getProjectInfo($site_module_info->site_srl);
