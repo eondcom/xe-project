@@ -2,18 +2,23 @@
 <skin version="0.2">
     <title xml:lang="ko">Project 기본 Skin</title>
     <title xml:lang="zh-TW">Project 基本面板</title>
+    <title xml:lang="en">Project Default Skin</title>
     <description xml:lang="ko">
         Project 기본 스킨입니다.
     </description>
     <description xml:lang="zh-TW">
         Project 基本預設面板。
     </description>
-    <version>0.1</version>
-    <date>2009-06-04</date>
+	<description xml:lang="en">
+		Default Skin for Project Module
+	</description>
+    <version>1.0</version>
+    <date>2010-04-26</date>
 
-    <author email_address="zero@xpressengine.com" link="http://blog.nzeo.com">
-        <name xml:lang="ko">zero</name>
-        <name xml:lang="zh-TW">zero</name>
+    <author email_address="developers@xpressengine.com" link="http://www.xpressengine.com">
+        <name xml:lang="ko">XE</name>
+        <name xml:lang="zh-TW">XE</name>
+		<name xml:lang="en">XE</name>
     </author>
 
     <license>GPL</license>
@@ -65,4 +70,5 @@
             <title xml:lang="zh-TW">灰色</title>
         </color>
     </colorset>
+
 </skin>

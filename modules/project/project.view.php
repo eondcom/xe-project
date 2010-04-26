@@ -37,6 +37,13 @@
 
 			
 			$project_config = $oProjectModel->getConfig();
+			if($project_config->menu_srl) {
+				$php_file = sprintf('%sfiles/cache/menu/%d.php', _XE_PATH_, $project_config->menu_srl);
+				@include($php_file);
+				if($menu) {
+					Context::set('menu_list', $menu->list);
+				}
+			}
 			$module_info = $oModuleModel->getModuleInfoByMid($project_config->project_main_mid);
 			if($module_info)
 			{

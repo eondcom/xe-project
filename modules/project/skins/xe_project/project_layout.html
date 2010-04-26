@@ -18,6 +18,14 @@
 		<!--@if($project_config->project_main_url)-->
 			<p><a href="{$project_config->project_main_url}"><span class="axis"></span><img src="img/@goToHub.gif" width="69" height="15" alt="ProjectXE" /></a></p>
 		<!--@endif-->
+			<!--@if($menu_list)-->
+			<ul style="float:left">
+				<!--@foreach($menu_list as $val)-->
+				<li class="{$_colorset_list[$_idx]} <!--@if($val['selected'])-->selected<!--@end-->"><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->><!--@if($val['text']==$val['link'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a></li>
+				<!--@end-->
+			</ul>
+			<!--@end-->
+		
 			<ul>
 				<!--@if($is_logged)-->
 				<li><a href="{getUrl('act','dispMemberLogout')}"><span>{$lang->cmd_logout}</span></a></li>

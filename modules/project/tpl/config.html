@@ -100,6 +100,19 @@
                 <p>{$lang->about_notify_mail}</p>
             </td>
         </tr>
+		<tr>
+			<th scope="row"><div>추가메뉴</div></th>
+			<td>
+				<select name="menu_srl">
+					<option value="0">------------</option>
+					<!--@foreach($menu_list as $menu)-->
+					<option value="{$menu->menu_srl}" <!--@if($project_config->menu_srl == $menu->menu_srl)-->selected="selected"<!--@end-->>{$menu->title}</option>
+					<!--@end-->
+				</select>
+			</td>
+		</tr>
+
+
         <tr class="row2">
             <th class="button" colspan="2"><span class="button black strong"><input type="submit" value="{$lang->cmd_save}" accesskey="s" /></span></div></th>
         </tr>

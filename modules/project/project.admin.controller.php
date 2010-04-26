@@ -76,6 +76,7 @@
                 $module_info = $oModuleModel->getModuleInfoByMid($mid, 0);
                 $args->module_srl = $module_info->module_srl;
                 $args->creation_group = implode(',',explode('|@|',$vars->creation_group));
+				$args->menu_srl = $vars->menu_srl;
                 $oModuleController->insertModuleConfig('project', $args);
             }
         }
