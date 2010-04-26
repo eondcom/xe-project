@@ -107,6 +107,9 @@
             $layout_list = $oLayoutMode->getLayoutList();
             Context::set('layout_list', $layout_list);
 
+			$oMenuAdminModel =& getAdminModel('menu');
+			Context::set('menu_list', $oMenuAdminModel->getMenus());
+
             $this->setTemplateFile('config');
         }
 
