@@ -51,18 +51,19 @@ a:focus{ text-decoration:underline;}
 .gnb p a .axis{ display:inline-block; height:29px; vertical-align:middle; width:0;}
 .gnb p a img{ vertical-align:middle;}
 
-.gnb ul{ float:right; position:relative; margin:0; padding:0; list-style:none; white-space:nowrap;}
+.gnb ul{ position:relative; margin:0; padding:0; list-style:none; white-space:nowrap;}
 .gnb li{ float:left; position:relative;}
 .gnb li:first-child span{ border:0;}
 .gnb li, 
 .gnb li.my a{ background-image:url(../img/iconGnb.gif); background-repeat:no-repeat; background-position:right 30px;}
 .gnb li.my a{ background-position:right -30px;}
-.gnb li a{ display:block; float:left; height:29px; line-height:29px; color:#838383; font-size:11px; text-decoration:none !important;}
+.gnb li a{ display:block; float:left; height:29px; line-height:29px; color:#bbb; font-size:11px; text-decoration:none !important;}
 .gnb li span{ position:relative; padding:0 13px; border-left:1px solid #515151;}
 .gnb li.my span{ padding-right:22px;}
 
 .gnb li.active{ z-index:2; border:1px solid #1b1b1b; border-top:0; border-bottom:0; margin:0 -1px 0 0; background-repeat:repeat-x; background-position:0 0;}
-.gnb li.active a{ color:#ccc;}
+.gnb .fLeft li:first-child.active{ margin-left:-1px;}
+.gnb li.active a{ color:#eee;}
 .gnb li.my.active a{ background-position:right -60px;}
 .gnb li.active span{ border-left:0;}
 
@@ -70,7 +71,7 @@ a:focus{ text-decoration:underline;}
 .gnb li.active ul{ display:block;}
 .gnb li li{ float:none; left:0; border:0 !important; margin:0 !important;}
 .gnb li li.active{ background:none;}
-.gnb li.my li a{ float:none; height:21px; line-height:21px; padding:0 6px; color:#ababab; background-position:right 30px !important;}
+.gnb li.my li a{ float:none; height:21px; line-height:21px; padding:0 6px; color:#767676; background-position:right 30px !important;}
 .gnb li.my.myLanguage li a{ padding-right:21px;}
 .gnb li.my.myLanguage li.selected a{ background-position:right -92px !important;}
 .gnb li li a:hover,
@@ -173,7 +174,7 @@ a:focus{ text-decoration:underline;}
 .menu .aside .sub ul{ float:right; margin:0; padding:1px; border:1px solid #878787; border-top:0; background:#fff;}
 .menu .aside .sub li{ width:100%; float:none; clear:both; *width:auto; display:block; _display:inline; border:0; margin:0;}
 .menu .aside .sub a{ width:100%; float:none; clear:both; _width:auto; display:block; padding:0 !important; margin:0; background-image:none !important; filter:none;}
-.menu .aside .sub a span{ display:block; padding:5px 20px; font-weight:normal; color:#767676; border:0; _zoom:0; background-image:none !important; filter:none;}
+.menu .aside .sub a span{ display:block; padding:5px 20px; font-weight:normal; color:#333; border:0; _zoom:0; background-image:none !important; filter:none;}
 .menu .aside .sub a:hover,
 .menu .aside .sub a:active,
 .menu .aside .sub a:focus{ background:#eee;}
