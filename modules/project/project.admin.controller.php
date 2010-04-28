@@ -26,7 +26,6 @@
             $args->use_rss = $vars->use_rss;
             $args->use_repos = $vars->use_repos;
             $args->repos_url = $vars->repos_url;
-            $args->project_main_url = $vars->project_main_url;
             if($vars->site_srl) {
                 unset($vars->creation_group);
                 unset($vars->project_main_mid);
