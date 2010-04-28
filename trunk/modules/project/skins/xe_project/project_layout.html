@@ -153,7 +153,8 @@
 			</fieldset>
 		</form>
 		<!--@if($member_config->enable_openid=='Y')-->
-		<form action="./" class="oLogin">
+        <!--%import("./filter/openid_login.xml")-->
+		<form action="./" class="oLogin" method="post" onsubmit="return procFilter(this, openid_login)">
 			<fieldset>
 				<legend>Open ID Login</legend>
 				<div class="iClear">
