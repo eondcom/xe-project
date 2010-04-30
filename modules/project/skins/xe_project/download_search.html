@@ -61,7 +61,7 @@
 						<td><a href="{getSiteUrl($project->domain,'module','issuetracker','act','dispIssuetrackerDownload', 'release_srl', $project->release_srl)}">{$project->title}</a></td>
 						<td class="title">{$project->release_note}</td>
 						<td class="num sort">{$project->download_count}</td>
-						<td class="num">2010.12.24</td>
+						<td class="num">{zdate($project->regdate, "Y.m.d")}</td>
 					</tr>
 					<!--@end-->
 					<!--@end-->
