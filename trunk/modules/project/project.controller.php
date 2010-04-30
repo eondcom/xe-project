@@ -350,6 +350,14 @@
             $output = executeQuery('project.updateProject', $args);
             if(!$output->toBool()) return $output;
 
+			$oModuleModel =& getModel('module');
+			$site_info = $oModuleModel->getSiteInfo($project_info->site_srl);
+			$module_info = $oModuleModel->getModuleInfoByModuleSrl($site_info->module_srl);
+			$oModuleController =& getController('module');
+			$module_info->browser_title = $title;
+			$output = $oModuleController->updateModule($module_info);
+            if(!$output->toBool()) return $output;
+
             $project_logo = Context::get('project_logo');
             if($project_logo['name']) {
                 $logo_src = 'files/attach/project_logo/'.$project_info->site_srl.'.jpg';
