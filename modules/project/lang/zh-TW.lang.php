@@ -237,4 +237,5 @@
 	$lang->my_activities = "My Activities";
 	$lang->project_setting = "Project 設定";
 	$lang->download_program = "Download Program";
+	$lang->activity_types = array("d" => "Documents", "c" => "Comments", "s" => "Commits", "a" => "Assigned Issues");
 ?>

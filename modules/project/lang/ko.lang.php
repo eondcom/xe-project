@@ -237,4 +237,6 @@
 	$lang->my_activities = "내 활동기록";
 	$lang->project_setting = "프로젝트 설정";
 	$lang->download_program = "프로그램 다운로드";
+
+	$lang->activity_types = array("d" => "글", "c" => "댓글", "s" => "커밋", "a" => "할당된 이슈");
 ?>

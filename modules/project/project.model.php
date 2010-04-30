@@ -86,6 +86,7 @@
 			$args->document_srls = implode(",", $list);
 			$args->list_count = count($list);
 			$output2 = executeQueryArray("document.getDocuments", $args);
+			if(!$output2->data) $output2->data = array();
 			foreach($output2->data as $doc)
 			{
 				if($doc->is_secret == "Y") continue;
@@ -104,6 +105,7 @@
 		{
 			$args->comment_srls = implode(",", $list);
             $output = executeQueryArray('project.getComments', $args);
+			if(!$output->data) $output->data = array();
 			foreach($output->data as $com)
 			{
 				if($com->is_secret == "Y") continue;
@@ -156,7 +158,23 @@
 			}
 		}
 
-		function getNewItems($page, $site_srls = null, $member_srl = null)
+		function getNewItemsCounts($site_srl, $member_srl)
+		{
+			if(!$member_srl) return array();
+			$args->member_srl = $member_srl;
+			if($site_srl) $args->site_srl = $site_srl;
+			$output = executeQueryArray("project.getNewItemsCounts", $args);
+			if(!$output->data) return array();	
+			$res = array();
+			foreach($output->data as $item)
+			{
+				$res[$item->type] = $item->count;
+			}
+			return $res;
+
+		}
+
+		function getNewItems($page, $site_srls = null, $member_srl = null, $type = null)
 		{
 			$args->member_srl = $member_srl;
 			$args->page = $page;
@@ -177,6 +195,7 @@
 				$types = array();
 				foreach($output->data as $item)
 				{
+					if($type && $item->type != $type) continue;
 					if($item->type == "s") $types["s"][] = $item->target_srl.".".$item->site_srl; 
 					else if($item->type == "a") $types["d"][] = $item->target_srl;
 					else $types[$item->type][] = $item->target_srl;

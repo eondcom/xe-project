@@ -115,7 +115,22 @@
 			{
 				$site_srl = $site_module_info->site_srl;
 			}
-			$output = $oModel->getNewItems($page, $site_srl, $logged_info->member_srl);
+
+			if(!$site_srl) {
+				$site_srl = Context::get('site_srl');
+				if(!$site_srl) unset($site_srl);
+			}
+
+			$type = Context::get('type');
+			$output = $oModel->getNewItems($page, $site_srl, $logged_info->member_srl, $type);
+			$counts = $oModel->getNewItemsCounts($site_srl, $logged_info->member_srl);
+			Context::set("counts", $counts);
+			$sum = 0;
+			foreach($counts as $item)
+			{
+				$sum += $item;
+			}
+			Context::set('sum_activities', $sum);
 			if(count($output->sites) > 0)
 			{
 				Context::set('projects', $oModel->getProjects(implode(",", $output->sites)));
@@ -124,7 +139,6 @@
 			Context::set('modules', $output->modules);
             Context::set('page_navigation', $output->page_navigation);
 			Context::set('activities', $output->data);
-
 
 			$this->setTemplateFile("myactivity.html");
 		}
