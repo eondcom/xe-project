@@ -9,6 +9,7 @@
 		<condition operation="in" column="site_srl" var="site_srls" filter="number"/>
 		<condition operation="equal" column="member_srl" var="member_srl" filter="number" pipe="and" />
 		<condition operation="notequal" column="type" var="remove_type" pipe="and" />
+		<condition operation="equal" column="type" var="type" pipe="and" />
 	</conditions>
     <navigation>
         <index var="sort_index" default="regdate" order="order_type" />

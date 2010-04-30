@@ -187,6 +187,10 @@
 			{
 				$args->remove_type = "a";
 			}
+            if($type)
+            {
+                $args->type = $type;
+            }
 			$output = executeQueryArray("project.getNewItems", $args);
 			$sites = array();
 			$modules = array();
