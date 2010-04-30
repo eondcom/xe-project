@@ -4,26 +4,41 @@
 		<div class="pxeContent">
 			<div class="pxeH">
 				<h2>내 활동기록 &gt; <strong>모두보기</strong><em>({$page_navigation->total_count} 건)</em></h2>
-				<form action="" class="filter">
+				<form action="./" class="filter">
+					<input type="hidden" name="mid" value="{$mid}" />
+					<input type="hidden" name="act" value="{$act}" />
+					<input type="hidden" name="page" value="1" />
 					<div class="select" style="width:150px;">
 						<span class="ctrl"><span class="arrow"></span></span>
+						<!--@if($site_srl)-->
+						<!--@foreach($my_projects as $project)-->
+						<!--@if($project->site_srl == $site_srl)-->
+						{@ $chosen = $project; }
+						<!--@end-->
+						<!--@end-->
+						<button type="button" class="myValue">{$chosen->project_title}</button>
+						<!--@else-->
 						<button type="button" class="myValue">전체 프로젝트</button>
+						<!--@end-->
 						<ul class="iList">
+							<li><input name="site_srl" class="option" type="radio" value="0" id="ptotal" /><label for="ptotal">전체 프로젝트</label></li>
 							<!--@foreach($my_projects as $key=>$project)-->
-							<li><input name="p" id="p{$key}" class="option" type="radio" value="{$project->site_srl}" /><label for="p{$key}">{$project->project_title}</label></li>
+							<li><input name="site_srl" id="p{$key}" class="option" type="radio" value="{$project->site_srl}" <!--@if($project->site_srl == $site_srl)-->checked="checked"<!--@end-->/><label for="p{$key}">{$project->project_title}</label></li>
 							<!--@end-->
 						</ul>
 					</div>
 					<div class="select" style="width:150px;">
 						<span class="ctrl"><span class="arrow"></span></span>
-						<button type="button" class="myValue">공헌 분야</button>
+						<!--@if(!$type)-->
+						<button type="button" class="myValue">공헌 분야 ({$sum_activities})</button>
+						<!--@else-->
+						<button type="button" class="myValue">{$lang->activity_types[$type]} ({intval($counts[$type])})</button>
+						<!--@end-->
 						<ul class="iList">
-							<li><input name="c" id="c1" class="option" type="radio" value="" /><label for="c1">위키</label></li>
-							<li><input name="c" id="c2" class="option" type="radio" value="" /><label for="c2">포럼</label></li>
-							<li><input name="c" id="c3" class="option" type="radio" value="" /><label for="c3">댓글</label></li>
-							<li><input name="c" id="c4" class="option" type="radio" value="" /><label for="c4">커밋</label></li>
-							<li><input name="c" id="c5" class="option" type="radio" value="" /><label for="c5">등록한 이슈</label></li>
-							<li><input name="c" id="c6" class="option" type="radio" value="" /><label for="c6">할당된 이슈</label></li>
+							<li><input name="type" id="ctotal" class="option" type="radio" value="" /><label for="ctotal">공헌 분야 ({$sum_activities})</label></li>
+							<!--@foreach($lang->activity_types as $key => $val)-->
+							<li><input name="type" id="c{$key}" class="option" type="radio" value="{$key}" /><label for="c{$key}">{$val} ({intval($counts[$key])})</label></li>
+							<!--@end-->
 						</ul>
 					</div>
 					<input type="submit" value="GO" class="go" />

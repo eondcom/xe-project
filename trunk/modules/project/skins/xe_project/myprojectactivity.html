@@ -7,14 +7,16 @@
 			<div class="filter">
 				<div class="select open" style="width:200px;">
 					<span class="ctrl"><span class="arrow"></span></span>
-					<button type="button" class="myValue">공헌분야(365)</button>
+					<!--@if($type)-->
+					<button type="button" class="myValue">{$lang->activity_types[$type]} ({intval($counts[$type])})</button>
+					<!--@else-->
+					<button type="button" class="myValue">공헌분야 ({$sum_activities})</button>
+					<!--@end-->
 					<ul class="aList">
-						<li><a href="#">위키(21)</a></li>
-						<li><a href="#">포럼(49)</a></li>
-						<li><a href="#">댓글(62)</a></li>
-						<li><a href="#">커밋(124)</a></li>
-						<li><a href="#">등록한 이슈(26)</a></li>
-						<li><a href="#">할당된 이슈(43)</a></li>
+						<li><a href="{getUrl('page','','type','')}">공헌분야 ({$sum_activities})</a></li>
+						<!--@foreach($lang->activity_types as $key => $val)-->
+						<li><a href="{getUrl('page','','type',$key)}">{$val} ({intval($counts[$key])})</a></li>
+						<!--@end-->
 					</ul>
 				</div>
 			</div>
