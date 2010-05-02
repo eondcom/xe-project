@@ -26,20 +26,20 @@
     $lang->project_main_mid = 'project 主要 ID';
     $lang->project_main_layout = 'project 主要版面';
     $lang->project_repos = '檔案庫設定';
-    $lang->disable_repos = '저장소 호스팅 지원이 되지 않습니다';
+    $lang->disable_repos = '檔案庫主機不支援';
     $lang->summary = '總覽';
     $lang->repos_title = '檔案庫標題';
     $lang->repos_id = '檔案庫 ID';
     $lang->repos_url = '檔案庫 URL';
     $lang->project_allow_commit = '允許提交群組';
     $lang->repository = "檔案庫";
-    $lang->repository_url = "檔案庫 URL";
+    $lang->repository_url = "檔案庫網址";
     $lang->project_main_url = "project 首頁";
     $lang->my_projects = "參加 project";
-    $lang->release = "릴리즈";
-    $lang->packages = '패키지';
-    $lang->timeline = '타임라인';
-    $lang->download = '다운로드';
+    $lang->release = "發佈";
+    $lang->packages = '套裝軟體';
+    $lang->timeline = '時間軸';
+    $lang->download = '下載';
     $lang->project_list = 'project列表';
     $lang->project_member_count = '會員數量';
     $lang->developer_member_count = '開發者數量';
@@ -47,12 +47,12 @@
     $lang->my_project = '我的 project';
     $lang->project_home = 'Project Home';
     $lang->top_activation_project = '活躍的 projects (以一周為主)';
-	$lang->rank_activation = '활성화';
-    $lang->newest_project = '최신 프로젝트';
-	$lang->order_target = '정렬 순서';
-	$lang->created_date = '생성일';
-	$lang->creation_agreement = '생성 약관';
-	$lang->agree_agreement = '同意使用條款';
+	$lang->rank_activation = '活躍排行';
+    $lang->newest_project = '最新project';
+	$lang->order_target = '排列順序';
+	$lang->created_date = '建立日期';
+	$lang->creation_agreement = '建立條件';
+	$lang->agree_agreement = '同意條款';
     $lang->project_admin_menus = array(
         'dispProjectAdminContent' => '列表',
         'dispProjectAdminReserved' => '等候',
@@ -88,7 +88,7 @@
 			'儲存設定' => array('project',"dispProjectRepos") );
 		
     $lang->project_default_menus_o = array(
-        '最初' => array('project','', array(
+        '首頁' => array('project','', array(
                 '新聞' => array('project','dispProjectNews'),
                 '求救' => array('project','dispProjectOffer'),
                 '參加會員' => array('project','dispProjectMember'),
@@ -121,7 +121,7 @@
     $lang->project_member_group = array(
         'observer' => '대기회원',
         'regular' => '正會員',
-        'commiter' => '개발자',
+        'commiter' => '提交者',
     );
     $lang->default_language = '預設語言';
 
@@ -137,20 +137,20 @@
     );
 
     $lang->notify_mail = '郵件通知';
-    $lang->about_notify_mail = '프로젝트의 등록 요청이 있을 때 메일을 발송받을 수 있는 이메일 주소를 입력해주세요.';
+    $lang->about_notify_mail = '請輸入郵件位址，當有 project 註冊請求時會用郵件通知。';
 
     $lang->cmd_make_project = '建立 Project';
     $lang->cmd_import = '匯入';
-    $lang->cmd_make_directory = '디렉토리 생성';
-    $lang->cmd_make_sub_directory = '하위 디렉토리 생성';
+    $lang->cmd_make_directory = '建立目錄';
+    $lang->cmd_make_sub_directory = '建立子目錄';
     $lang->cmd_export = '匯出';
-    $lang->cmd_repos_repository = '저장소 저장소 생성';
+    $lang->cmd_repos_repository = '建立檔案庫記憶域';
     $lang->cmd_manage_project_account = '檔案庫帳戶設定';
     $lang->cmd_manage_member_group ='群組管理';
     $lang->cmd_manage_member_list ='會員列表';
     $lang->cmd_manage_components ='功能設定';
     $lang->cmd_project_registration = 'Project 建立';
-    $lang->cmd_directory_registration = '디렉토리 생성';
+    $lang->cmd_directory_registration = '目錄建立';
     $lang->cmd_project_setup = 'project設定2';
     $lang->cmd_project_delete = '刪除 project';
     $lang->cmd_go_home = '返回首頁';
@@ -165,16 +165,16 @@
     $lang->cmd_accept_project_creation = '允許';
 
     $lang->about_project_main_mid = 'project的網址是「http://網址/ID」，請輸入想要的 ID 值。';
-    $lang->about_project_rss = 'Project 메인페이지의 RSS 출력을 허용할 수 있습니다';
-    $lang->about_project_repos = '프로젝트 관리자들이 저장소을 생성할 수 있도록 할 수 있습니다';
-    $lang->about_project_repos_url = '개별 프로젝트에 제공할 저장소의 주소를 입력해주세요.<br/>저장소은 입력하신 주소의 서브도메인으로 정해집니다.<br/>repos.xpressengine.com 으로 입력하시면 저장소의 주소는 http://repos.xpressengine.com/저장소ID 으로 됩니다';
-    $lang->about_project_main_url = '개별 프로젝트에서 프로젝트 메인으로 돌아가기 위한 URL을 입력해주세요';
-    $lang->about_repos_title = '저장소 접속시 출력되는 저장소의 이름을 정해주세요<br/>( 2 ~ 40個字之間 )';
+    $lang->about_project_rss = '可選擇是否輸出 Project 首頁 RSS 內容。';
+    $lang->about_project_repos = 'project管理員可幫你建立檔案庫。';
+    $lang->about_project_repos_url = '提供個人 project 檔案庫，請輸入網址。<br/>所輸入的網址必須是子域名。<br/>輸入 repos.xpressengine.com 的話，檔案庫網址就是 http://repos.xpressengine.com/檔案庫 ID 了。';
+    $lang->about_project_main_url = '請輸入 project 首頁網址。';
+    $lang->about_repos_title = '請決定檔案庫名稱。<br/>( 2 ~ 40個字之間 )';
     $lang->about_repos_id = '저장소 ID는 서비스 제공자가 제공하는 저장소 주소의 구분을 위해서 필요합니다.<br/>한번 생성하면 변경할 수 없습니다<br/>(可使用英文/數字/底線，開頭必須是英文，長度 2~20 個字之間)';
     $lang->about_project_allow_commit = '선택된 그룹의 회원들은 저장소에 커밋할 수 있습니다. 변경시 기존 권한이 있는 회원들의 권한이 박탈됩니다';
     $lang->about_manage_project_account = '프로젝트의 커밋권한이 있을 경우 저장소 계정 설정을 해주어야 실제 저장소에 접근할 수 있습니다.<br/>저장소의 계정 아이디는 지금 로그인하신 아이디와 동일하며 비밀번호는 다르게 설정할 수 있습니다.<br/>하나의 저장소 계정으로 이 사이트의 모든 프로젝트 저장소에 접근할 수 있습니다';
-    $lang->about_move_module = '가상사이트와 기본사이트간의 모듈을 옮길 수 있습니다.<br/>다만 가상사이트끼리 모듈을 이동하거나 같은 이름의 mid가 있을 경우 예기치 않은 오류가 생길 수 있으니 꼭 가상 사이트와 기본 사이트간의 다른 이름을 가지는 모듈만 이동하세요';
-    $lang->about_default_language = '처음 접속하는 사용자의 언어 설정을 지정할 수 있습니다.';
+    $lang->about_move_module = '虛擬網站模組間的移動。<br/>다만 가상사이트끼리 모듈을 이동하거나 같은 이름의 mid가 있을 경우 예기치 않은 오류가 생길 수 있으니 꼭 가상 사이트와 기본 사이트간의 다른 이름을 가지는 모듈만 이동하세요';
+    $lang->about_default_language = '請選擇用戶預設語言。';
     $lang->about_project_act = array(
         'dispProjectManage' => '프로젝트의 소개 및 디렉토리등을 설정할 수 있습니다',
         'dispProjectMemberGroupManage' => 'Project 내에서 사용되는 그룹 관리를 할 수 있습니다',
@@ -201,7 +201,7 @@
     $lang->about_project_description = '프로젝트를 소개할 수 있는 간단한 내용을 입력해주세요.<br/>가능하면 프로젝트의 특징과 정보를 알 수 있도록 해주시면 좋습니다. (10~200자 사이)';
     $lang->about_project_directory = '프로젝트를 손쉽게 찾아 갈 수 있도록 생성하시려는 프로젝트의 디렉토리를 설정해주세요.<br />프로젝트가 쉽게 찾아지고 활용될 수 있는데 매우 중요한 정보입니다';
     $lang->about_project_logo = '프로젝트 상단 또는 프로젝트 전체 목록에서 나타나는 로고 이미지를 입력해주세요.';
-    $lang->about_project_banner = '請上傳 project 初始畫面所顯示的廣告圖片。(寬度 200px)';
+    $lang->about_project_banner = '請上傳 project 初始畫面所顯示的廣告圖片。(寬度 180px)';
 
     $lang->msg_wait_repos_create = "저장소 저장소는 즉시 생성되지 않습니다.\n\n문의 사항이 있으시면 사이트 운영자에게 문의 바랍니다";
     $lang->msg_need_one_group = '커밋 허용 그룹은 1개 이상 지정되어 있어야 합니다';
@@ -220,8 +220,8 @@
     $lang->alert_project_title_size_is_wrong = '標題長度必須在 4-20 個字之間。';
     $lang->alert_project_description_size_is_wrong = '簡介內容最少輸入10個字最多200個字。';
 
-    $lang->msg_notify_reserved_title = 'project登錄請求';
-    $lang->msg_notify_reserved_content = '프로젝트 등록 요청이 있습니다.<br/>捷徑 : <a href="%s">%s</a><br/>';
+    $lang->msg_notify_reserved_title = 'project註冊請求';
+    $lang->msg_notify_reserved_content = 'project註冊請求。<br/>捷徑 : <a href="%s">%s</a><br/>';
 	$lang->date_opened = "建立日期";
 	$lang->write_to_forum = "新主題";
 	$lang->write_new_issue = "新問題";
@@ -236,6 +236,7 @@
 	$lang->project_title = "Project 標題";
 	$lang->my_activities = "My Activities";
 	$lang->project_setting = "Project 設定";
-	$lang->download_program = "Download Program";
-	$lang->activity_types = array("d" => "Documents", "c" => "Comments", "s" => "Commits", "a" => "Assigned Issues");
+	$lang->download_program = "程式下載";
+
+	$lang->activity_types = array("d" => "글", "c" => "댓글", "s" => "커밋", "a" => "할당된 이슈");
 ?>
