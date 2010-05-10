@@ -31,14 +31,12 @@
             if(!$site_srl) {
                 $config = $oModuleModel->getModuleConfig('project');
                 if(!$config) {
-                    $config->creation_group = array();
                     $config->project_main_mid = 'project';
                     $config->skin = 'xe_project';
                     $config->access_type = 'vid';
                     $config->default_domain = '';
                     $config->use_repos = N;
                 } else {
-                    $config->creation_group = explode(',',$config->creation_group);
                     if(!isset($config->project_main_mid)) $config->project_main_mid = 'project';
                     if(!isset($config->skin)) $config->skin = 'xe_project';
                     if(!isset($config->access_type)) $config->access_type = 'vid';
@@ -52,22 +50,6 @@
             }
 
             return $config;
-        }
-
-        function isCreationGranted($member_info = null) {
-            if(!$member_info) $member_info = Context::get('logged_info');
-            if(!$member_info->member_srl) return false;
-            if($member_info->is_admin == 'Y') return true;
-
-            $config = $this->getConfig(0);
-
-            if(!is_array($member_info->group_list) || !count($member_info->group_list) || !count($config->creation_group)) return;
-
-            $keys = array_keys($member_info->group_list);
-            for($i=0,$c=count($keys);$i<$c;$i++) {
-                if(in_array($keys[$i],$config->creation_group)) return true;
-            }
-            return false;
         }
 
 		function _populateReleases($list, &$res)

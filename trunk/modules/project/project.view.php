@@ -464,7 +464,7 @@
          **/
         function dispProjectCreateProject() {
             $oProjectModel = &getModel('project');
-            if(!$oProjectModel->isCreationGranted()) return new Object(-1,'alert_permission_denied_to_create');
+			if(!$this->grant->creation) return new Object(-1,'alert_permission_denied_to_create');
 
             $project_config = $oProjectModel->getConfig($this->site_srl);
             Context::set('project_config', $project_config);
