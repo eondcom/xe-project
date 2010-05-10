@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <module>
-    <grants />
+    <grants>
+		<grant name="creation" default="member">
+			<title xml:lang="ko">프로젝트 생성</title>
+			<title xml:lang="en">Creation of a new project</title>
+		</grant>
+	</grants>
     <permissions>
         <permission action="dispProjectManage" target="manager" />
         <permission action="dispProjectMemberGroupManage" target="manager" />

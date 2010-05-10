@@ -52,14 +52,6 @@
             </td>
         </tr>
         <tr>
-            <th scope="row"><div>{$lang->project_creation_privilege}</div></th>
-            <td>
-                <!--@foreach($groups as $key => $val)-->
-                <input type="checkbox" name="creation_group" <!--@if(in_array($val->group_srl, $project_config->creation_group))-->checked="checked"<!--@end--> value="{$val->group_srl}" id="creation_group_{$key}"/><label for="creation_group_{$key}">{$val->title}</label>
-                <!--@end-->
-            </td>
-        </tr>
-        <tr>
             <th scope="row"><div>{$lang->repository}</div></th>
             <td>
                 <input type="checkbox" name="use_repos" value="Y" <!--@if($project_config->use_repos=='Y')-->checked="checked"<!--@end-->/>
