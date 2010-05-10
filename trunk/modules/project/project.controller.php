@@ -483,6 +483,15 @@
             $oModule->setLayoutPath($template_path);
             $oModule->setLayoutFile('project_layout');
 
+			if(Context::get('is_logged')) {
+				$logged_info = Context::get('logged_info');
+				$margs->member_srl = $logged_info->member_srl;
+				$output = executeQueryArray('project.getMyProjects', $margs);
+				if(!$output->data) $output->data = array();
+				$this->my_projects = $output->data;
+				Context::set('my_projects', $output->data);
+			}
+
             return new Object();
         }
 
