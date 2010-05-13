@@ -74,7 +74,7 @@
 				if($doc->is_secret == "Y") continue;
 				$res[$doc->document_srl] = $doc;
 			}
-			$args2->target_srl = $document_srls;
+			$args2->target_srl = $args->document_srls;
 			$output = executeQueryArray("issuetracker.getIssues", $args2);
 			if(!$output->data) return;
 			foreach($output->data as $doc)
