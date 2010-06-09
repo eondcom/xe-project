@@ -138,8 +138,8 @@
     $lang->cmd_make_directory = '디렉토리 생성';
     $lang->cmd_make_sub_directory = '하위 디렉토리 생성';
     $lang->cmd_export = '내보내기';
-    $lang->cmd_repos_repository = '저장소 저장소 생성';
-    $lang->cmd_manage_project_account = '저장소 계정 설정';
+    $lang->cmd_repos_repository = '저장소 생성';
+    $lang->cmd_manage_project_account = 'Repository Account';
     $lang->cmd_manage_member_group ='회원 그룹 관리';
     $lang->cmd_manage_member_list ='회원 목록 관리';
     $lang->cmd_manage_components ='기능 설정';
@@ -222,8 +222,8 @@
 	$lang->member_unit = "person(s)";
 	$lang->profile = "Profile";
 	$lang->my_projects = "My Projects";
-	$lang->contributor_sort_order = array( "points" => "공헌지수 순", "articles" => "글 순", "comments" => "댓글 순", "commits" => "커밋 순" );
-	$lang->mysummary_sort_order = array( "point" => "공헌지수 순", "member_count" => "멤버수 순", "regdate" => "개설일 최신 순", "joindate" => "가입일 최신 순");
+	$lang->contributor_sort_order = array( "points" => "Contribution Points", "articles" => "Number of Articles", "comments" => "Number of Comments", "commits" => "Number of Commits" );
+	$lang->mysummary_sort_order = array( "point" => "Contribution Points", "member_count" => "Number of Members", "regdate" => "Registration Date", "joindate" => "Join Date");
 	$lang->summary_sort_order = array( "point" => "활성화지수 순", "member_count" => "멤버수 순", "regdate" => "개설일 최신 순" );
 	$lang->download_sort_order = array( "download_count" => "다운로드 순", "regdate" => "등록일 최신 순", "oldregdate" => "등록일 오랜 순");
 	$lang->projectmilestone = "Milestone";
@@ -232,4 +232,5 @@
 	$lang->project_setting = "Project Setting";
 	$lang->download_program = "Download Program";
 	$lang->activity_types = array("d" => "Documents", "c" => "Comments", "s" => "Commits", "a" => "Assigned Issues");
+	$lang->news = "News";
 ?>
