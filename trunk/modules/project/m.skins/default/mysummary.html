@@ -3,24 +3,24 @@
 	<div class="ln">
 		<ul>
 		<!--@if(!$is_logged)-->
-		{@ array_shift($lang->mobile)}
-		{@ array_shift($lang->mobile)}
-		<!--@end-->
-		<!--@foreach($lang->mobile_menu as $key=>$val)-->
-			<li<!--@if($act==$key)--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'act',$key)}">{$val}</a></li>
-		<!--@end-->
-		</ul>
-	</div>
-	<!--@if($news_page_navigation->total_count == 0)-->
-	<div class="pxeNews pxeNoData">
-		<p>아직 프로젝트 소식이 없습니다.</p>
-	</div>
-	<!--@else-->
-	<ul class="lt">
-		<!--@foreach($news_list as $news)-->
-		<!--@if($news->type == "d")-->
-		<li>
-			<a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">
+		{@ array_shift($lang->mobile_menu)}
+    {@ array_shift($lang->mobile_menu)}
+    <!--@end-->
+    <!--@foreach($lang->mobile_menu as $key=>$val)-->
+        <li<!--@if($act==$key)--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'act',$key)}">{$val}</a></li>
+    <!--@end-->
+    </ul>
+</div>
+<!--@if($news_page_navigation->total_count == 0)-->
+<div class="pxeNews pxeNoData">
+    <p>아직 프로젝트 소식이 없습니다.</p>
+</div>
+<!--@else-->
+<ul class="lt">
+    <!--@foreach($news_list as $news)-->
+    <!--@if($news->type == "d")-->
+    <li>
+        <a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">
 				<span class="title">{$projects[$news->site_srl]->title} &rsaquo; {$modules[$news->item->module_srl]} &rsaquo; <strong>{$news->item->title}</strong> <span>[{$news->item->comment_count}]</span></span>
 				<span class="auth"><em>{$news->item->nick_name}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
 			</a>

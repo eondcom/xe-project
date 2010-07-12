@@ -3,8 +3,8 @@
 	<div class="ln">
 		<ul>
 		<!--@if(!$is_logged)-->
-		{@ array_shift($lang->mobile)}
-		{@ array_shift($lang->mobile)}
+		{@ array_shift($lang->mobile_menu)}
+		{@ array_shift($lang->mobile_menu)}
 		<!--@end-->
 		<!--@foreach($lang->mobile_menu as $key=>$val)-->
 			<li<!--@if($act==$key)--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'act',$key)}">{$val}</a></li>

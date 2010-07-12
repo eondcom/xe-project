@@ -295,6 +295,25 @@
 			Context::set('popular_downloads', $output->data);
 		}
 
+        function _dispProjectListAll($list_count = 5)
+        {
+            $oProjectModel =& getModel('project');
+            $page = Context::get('page');
+            if(!$page) {
+                $page = 1;
+                Context::set('page', $page);
+            }
+			$sort_order = Context::get('sort_order');
+			if(!$sort_order) {
+				$sort_order = 'point';
+				Context::set('sort_order', $sort_order);
+			}
+
+            $output = $oProjectModel->getProjectListInSummary($page, $sort_order, $list_count);
+            Context::set('page_navigation', $output->page_navigation);
+			Context::set('project_list', $output->data);
+        }
+
         function dispProjectSummary() {
             $oProjectModel =& getModel('project');
             $page = Context::get('page');
@@ -402,7 +421,7 @@
 			
             $output = $oProjectModel->getProjectList($page, null, 0, $list_count, 'rank', $args->member_srl);
 			$total_count = count($this->my_projects);
-            Context::set('page_navigation', new PageHandler($total_count, ($total_count+$list_count-1)/$list_count, $page));
+            Context::set('page_navigation', new PageHandler($total_count, (int)(($total_count+$list_count-1)/$list_count), $page));
 			Context::set('project_list', $projects);
 		}
 
