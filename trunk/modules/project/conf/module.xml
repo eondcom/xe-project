@@ -38,6 +38,7 @@
 
         <action name="dispProjectManage" type="view" standalone="true" />
         <action name="dispProjectSummary" type="view" standalone="true" />
+		<action name="dispProjectMySummary" type="view" standalone="true" />
         <action name="dispProjectSearch" type="view" standalone="true" />
         <action name="dispProjectPlan" type="view" standalone="true" />
         <action name="dispProjectContributors" type="view" standalone="true" />
@@ -90,5 +91,7 @@
         <action name="procProjectAdminDeleteDirectory" type="controller" />
         <action name="procProjectAdminDeleteReserve" type="controller" />
         <action name="recalculateContribute" type="controller" />
+
+		<action name="dispProjectMyProjectList" type="mobile" />
     </actions>
 </module>

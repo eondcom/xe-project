@@ -82,7 +82,14 @@ class projectMobile extends projectView {
 		$this->setTemplateFile('mysummary');
 	}
 
+	function dispProjectMyProjectList() {
+		$this->_dispProjectList(10);	
+		$this->setTemplateFile('my_project_list');
+	}
 
+	function dispProjectList() {
+		$this->setTemplateFile('project_list');
+	}
 }
 
 ?>

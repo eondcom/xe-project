@@ -209,4 +209,6 @@
 
 	$lang->activity_types = array("d" => "글", "c" => "댓글", "s" => "커밋", "a" => "할당된 이슈");
 	$lang->news = "뉴스";
+
+	$lang->mobile_menu = array("dispProjectMySummary" => "내 프로젝트 소식", "dispProjectMyProjectList" => "내 프로젝트 목록", "dispProjectSummary" => "전체 프로젝트 소식", "dispProjectList" => "전체 프로젝트 목록");
 ?>
