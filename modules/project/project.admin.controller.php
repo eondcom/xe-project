@@ -82,7 +82,6 @@
                     $module_args->layout_srl = $layout_srl;
 					$module_args->mlayout_srl = $mlayout_srl;
                     $output = $oModuleController->updateModule($module_args);
-					debugPrint($module_args);
                     if(!$output->toBool()) return $output;
                 }
 
