@@ -81,37 +81,6 @@
 			'Editor/Addon' => array('project',"dispProjectComponent"),
 			'Repository' => array('project',"dispProjectRepos") );
 		
-    $lang->project_default_menus_o = array(
-        '처음' => array('project','', array(
-                '뉴스' => array('project','dispProjectNews'),
-                '구인' => array('project','dispProjectOffer'),
-                '참여 회원' => array('project','dispProjectMember'),
-            
-            )),
-        '위키' => array('wiki','dispWikiContent'),
-        '포럼' => array('forum','dispBoardContent'),
-        '이슈목록' => array('issuetracker','dispIssuetrackerViewIssue', array(
-                '이슈목록' => array('issuetracker','dispIssuetrackerViewIssue'),
-                '이슈등록' => array('issuetracker','dispIssuetrackerNewIssue'),
-            )),
-        '개발현황' => array('issuetracker','dispIssuetrackerViewMilestone',array(
-                '개발현황' => array('issuetracker','dispIssuetrackerViewMilestone'),
-                '타임라인' => array('issuetracker','dispIssuetrackerTimeline'),
-                '코드열람' => array('issuetracker','dispIssuetrackerViewSource'),
-            )),
-        '다운로드 ' => array('issuetracker','dispIssuetrackerDownload'),
-        '프로젝트 설정' => array('project','dispProjectManage', array(
-                '프로젝트 설정' => array('project','dispProjectManage'),
-                '그룹 설정' => array('project','dispProjectMemberGroupManage'),
-                '회원 관리 ' => array('project','dispProjectMemberManage'),
-                '포럼' => array('forum','dispBoardAdminInsertBoard'),
-                '이슈트래커' => array('issuetracker','dispIssuetrackerAdminProjectInfo'),
-                '위키' => array('wiki','dispWikiAdminInsertWiki'),
-                '접속 통계' => array('project','dispProjectCounter'),
-                '기능 설정' => array('project',"dispProjectComponent"),
-                '저장소 설정' => array('project',"dispProjectRepos"),
-            )),
-    );
     $lang->project_member_group = array(
         'observer' => '대기회원',
         'regular' => '정회원',
