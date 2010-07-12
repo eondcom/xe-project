@@ -76,10 +76,13 @@
             $oModuleModel = &getModel('module');
             $oProjectModel = &getModel('project');
             $oMemberModel = &getModel('member');
-            $oLayoutMode = &getModel('layout');
+            $oLayoutModel = &getModel('layout');
 
             // 프로젝트 메인 스킨 설정 
             Context::set('skins', $oModuleModel->getSkins($this->module_path));
+
+			$mskin_list = $oModuleModel->getSkins($this->module_path, "m.skins");
+			Context::set('mskin_list', $mskin_list);
 
             // project 전체 설정을 구함
             $project_config = $oProjectModel->getConfig();
@@ -104,8 +107,11 @@
             Context::set('groups', $groups);
 
             // 레이아웃 목록을 구함
-            $layout_list = $oLayoutMode->getLayoutList();
+            $layout_list = $oLayoutModel->getLayoutList();
             Context::set('layout_list', $layout_list);
+
+			$mobile_layout_list = $oLayoutModel->getLayoutList(0,"M");
+			Context::set('mlayout_list', $mobile_layout_list);
 
 			$oMenuAdminModel =& getAdminModel('menu');
 			Context::set('menu_list', $oMenuAdminModel->getMenus());

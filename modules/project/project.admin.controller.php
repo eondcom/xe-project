@@ -47,28 +47,42 @@
                 $args->skin = $vars->skin;
                 if(!$args->skin) $args->skin = 'xe_project';
 
+				$args->mskin = $vars->mskin;
+				if(!$args->mskin) $args->mskin = 'default';
+
+				$args->use_mobile = $vars->use_mobile;
+				if(!$args->use_mobile) $args->use_mobile = "N";
+
                 $project_config = $oProjectModel->getConfig(0);
                 $mid = $project_config->project_main_mid;
                 $layout_srl = Context::get('layout_srl');
+				$mlayout_srl = Context::get('mlayout_srl');
                 $module_info = $oModuleModel->getModuleInfoByMid($mid, 0);
                 if(!$module_info->module_srl) {
                     $module_args->site_srl = 0;
                     $module_args->mid = $args->project_main_mid;
                     $module_args->skin = $args->skin;
+					$module_args->mskin = $args->mskin;
+					$module_args->use_mobile = $args->use_mobile;
                     $module_args->browser_title = $args->browser_title;
                     $module_args->module = 'project';
                     $module_args->layout_srl = $layout_srl;
+					$module_args->mlayout_srl = $mlayout_srl;
                     $output = $oModuleController->insertModule($module_args);
                     if(!$output->toBool()) return $output;
                 } else {
                     $module_args->module = 'project';
                     $module_args->mid = $args->project_main_mid;
                     $module_args->skin = $args->skin;
+					$module_args->mskin = $args->mskin;
+					$module_args->use_mobile = $args->use_mobile;
                     $module_args->site_srl = 0;
                     $module_args->browser_title = $args->browser_title;
                     $module_args->module_srl = $module_info->module_srl;
                     $module_args->layout_srl = $layout_srl;
+					$module_args->mlayout_srl = $mlayout_srl;
                     $output = $oModuleController->updateModule($module_args);
+					debugPrint($module_args);
                     if(!$output->toBool()) return $output;
                 }
 
