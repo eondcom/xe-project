@@ -1,8 +1,7 @@
 <?php
+require_once(_XE_PATH_.'modules/project/project.view.php');
 
-class projectMobile extends moduleObject {
-
-	var $my_projects = null;
+class projectMobile extends projectView {
 
 	function init() {
 		$template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->mskin);
@@ -30,17 +29,26 @@ class projectMobile extends moduleObject {
 		else $this->dispProject();
 	}
 
-	function dispProjectMain() {
-		if(Context::get('is_logged'))
-		{
-			Context::set('act','dispProjectMySummary');
-			return $this->dispProjectMySummary();
-		}
-		else {
-			Context::set('act','dispProjectSummary');
-			return $this->dispProjectSummary();
-		}
-	}
+    function dispProjectSummary() {
+		$oProjectModel =& getModel('project');
+        $page = Context::get('news_page');
+        if(!$page) {
+            $page = 1;
+            Context::set('news_page', $page);
+        }
+
+        $output = $oProjectModel->getNewItems($page);
+        if(count($output->sites) > 0)
+        {
+            Context::set('projects', $oProjectModel->getProjects(implode(",", $output->sites)));
+        }
+
+        Context::set('modules', $output->modules);
+        Context::set('news_page_navigation', $output->page_navigation);
+        Context::set('news_list', $output->data);
+
+        $this->setTemplateFile('project_summary');
+    }
 
 	function dispProjectMySummary() {
 		$oProjectModel =& getModel('project');
