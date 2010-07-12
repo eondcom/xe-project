@@ -1,6 +1,16 @@
 <!--%import("css/mproject.css")-->
 <div class="bd">
-	<h2 class="h2">내 프로젝트 소식</h2>
+	<div class="ln">
+		<ul>
+		<!--@if(!$is_logged)-->
+		{@ array_shift($lang->mobile)}
+		{@ array_shift($lang->mobile)}
+		<!--@end-->
+		<!--@foreach($lang->mobile_menu as $key=>$val)-->
+			<li<!--@if($act==$key)--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'act',$key)}">{$val}</a></li>
+		<!--@end-->
+		</ul>
+	</div>
 	<!--@if($news_page_navigation->total_count == 0)-->
 	<div class="pxeNews pxeNoData">
 		<p>아직 프로젝트 소식이 없습니다.</p>

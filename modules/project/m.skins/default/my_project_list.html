@@ -1,0 +1,25 @@
+<!--%import("css/mproject.css")-->
+<div class="bd">
+	<div class="ln">
+		<ul>
+		<!--@if(!$is_logged)-->
+		{@ array_shift($lang->mobile)}
+		{@ array_shift($lang->mobile)}
+		<!--@end-->
+		<!--@foreach($lang->mobile_menu as $key=>$val)-->
+			<li<!--@if($act==$key)--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'act',$key)}">{$val}</a></li>
+		<!--@end-->
+		</ul>
+	</div>
+	<!--@if($page_navigation->total_count == 0)-->
+	<div class="pxeNews pxeNoData">
+		<p>아직 가입한 프로젝트가 없습니다.</p>
+	</div>
+	<!--@else-->
+	<ul class="gn">
+	<!--@foreach($project_list as $project)-->
+	<li><a href="{getSiteUrl($project->domain)}">{$project->project_title}</a></li>	
+	<!--@end-->		
+	</ul>
+	<!--@end-->
+</div>

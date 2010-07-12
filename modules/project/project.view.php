@@ -350,6 +350,62 @@
 			return ( $a->{$this->sort_order} > $b->{$this->sort_order} ) ? -1 : 1;
 		}
 
+		function _dispProjectList($list_count = 5) {
+            $oProjectModel =& getModel('project');
+			$logged_info = Context::get('logged_info');
+			if(!$logged_info) return $this->dispProjectSummary();
+            $args->member_srl = $logged_info->member_srl;
+            $page = Context::get('page');
+            if(!$page) {
+                $page = 1;
+                Context::set('page', $page);
+            }
+
+			$sort_order = Context::get('sort_order');
+			if(!$sort_order)
+			{
+				$sort_order = "point";
+				Context::set('sort_order',$sort_order);
+			}
+			$this->sort_order = $sort_order;
+
+			$output = executeQueryArray("project.getActivityPoints", $args);
+			if(!$output->data) $output->data = array();
+			$apoints = array();
+			foreach($output->data as $data)
+			{
+				$apoints[$data->site_srl] = $data->point;
+			}
+
+			$site_srls = array();
+			foreach($this->my_projects as $key=>$project)
+			{
+				$this->my_projects[$key]->point = $apoints[$project->site_srl]?$apoints[$project->site_srl]:0;
+				$site_srls[] = $project->site_srl;
+			}
+			$args->site_srl = implode(",", $site_srls);
+			$output = executeQueryArray("project.getProjectMemberCount", $args);
+			if(!$output->data) $output->data = array();
+			$member_counts = array();
+			foreach($output->data as $data)
+			{
+				$member_counts[$data->site_srl] = $data->count;
+			}
+
+			foreach($this->my_projects as $key=>$project)
+			{
+				$this->my_projects[$key]->member_count = $member_counts[$project->site_srl]?$member_counts[$project->site_srl]:0;
+			}
+
+			usort( $this->my_projects, array( $this, "cmp_target" ) );
+			$projects = array_slice($this->my_projects, ($page-1)*$list_count, $list_count);
+			
+            $output = $oProjectModel->getProjectList($page, null, 0, $list_count, 'rank', $args->member_srl);
+			$total_count = count($this->my_projects);
+            Context::set('page_navigation', new PageHandler($total_count, ($total_count+$list_count-1)/$list_count, $page));
+			Context::set('project_list', $projects);
+		}
+
         function dispProjectMySummary() {
             $oProjectModel =& getModel('project');
 			$logged_info = Context::get('logged_info');
