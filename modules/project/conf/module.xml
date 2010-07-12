@@ -93,5 +93,6 @@
         <action name="recalculateContribute" type="controller" />
 
 		<action name="dispProjectMyProjectList" type="mobile" />
+        <action name="dispProjectList" type="mobile" />
     </actions>
 </module>
