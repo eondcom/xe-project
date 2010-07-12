@@ -12,7 +12,7 @@
     <description xml:lang="zh-CN">提供一种在XE内迅速建立子站点的功能。</description>
     <description xml:lang="zh-TW">Maintains projects in XE (it includes forum, wiki,issuetracker with svn repository)</description>
     <description xml:lang="jp">XEソリューションでProjectを運営・管理する機能を提供します。</description>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
     <date>2010-06-09</date>
     <category>package</category>
 
