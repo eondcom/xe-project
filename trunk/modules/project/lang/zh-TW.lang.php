@@ -87,37 +87,6 @@
 			'功能設定' => array('project',"dispProjectComponent"),
 			'儲存設定' => array('project',"dispProjectRepos") );
 		
-    $lang->project_default_menus_o = array(
-        '首頁' => array('project','', array(
-                '新聞' => array('project','dispProjectNews'),
-                '求救' => array('project','dispProjectOffer'),
-                '參加會員' => array('project','dispProjectMember'),
-            
-            )),
-        '維基' => array('wiki','dispWikiContent'),
-        '論壇' => array('forum','dispBoardContent'),
-        '問題' => array('issuetracker','dispIssuetrackerViewIssue', array(
-                '閱覽問題' => array('issuetracker','dispIssuetrackerViewIssue'),
-                '發表問題' => array('issuetracker','dispIssuetrackerNewIssue'),
-            )),
-        '開發狀況' => array('issuetracker','dispIssuetrackerViewMilestone',array(
-                '開發狀況' => array('issuetracker','dispIssuetrackerViewMilestone'),
-                '時間軸' => array('issuetracker','dispIssuetrackerTimeline'),
-                '檢視原始碼' => array('issuetracker','dispIssuetrackerViewSource'),
-            )),
-        '檔案下載' => array('issuetracker','dispIssuetrackerDownload'),
-        'project設定' => array('project','dispProjectManage', array(
-                'project設定' => array('project','dispProjectManage'),
-                '群組設定' => array('project','dispProjectMemberGroupManage'),
-                '會員管理' => array('project','dispProjectMemberManage'),
-                '討論板' => array('forum','dispBoardAdminInsertBoard'),
-                '問題追蹤' => array('issuetracker','dispIssuetrackerAdminProjectInfo'),
-                '共筆系統' => array('wiki','dispWikiAdminInsertWiki'),
-                '訪問統計' => array('project','dispProjectCounter'),
-                '功能設定' => array('project',"dispProjectComponent"),
-                '檔案庫設定' => array('project',"dispProjectRepos"),
-            )),
-    );
     $lang->project_member_group = array(
         'observer' => '대기회원',
         'regular' => '正會員',
