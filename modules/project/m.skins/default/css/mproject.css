@@ -28,9 +28,9 @@ select{width:90%}
 .ln li{display:inline-block;_display:inline;vertical-align:top}
 .ln a{display:inline-block;padding:5px;text-decoration:none;color:#fff;text-shadow:0 0 2px #000;white-space:nowrap;font-size:14px;letter-spacing:-1px}
 .ln .active a{background:#fff;padding:8px 8px 5px 8px;color:#000;text-shadow:none;border-radius:3px 3px 0 0;-moz-border-radius:3px 3px 0 0;-webkit-border-radius:3px 3px 0 0;box-shadow:0 0 3px #000;-moz-box-shadow:0 0 3px #000;-webkit-box-shadow:0 0 3px #000}
-.ln button{position:absolute;width:0;height:0;overflow:hidden;font-size:0;padding:0;top:50%;margin:-10px 0 0 0;width:10px;border:0;background:transparent;box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;opacity:.6}
-.ln .next{right:-5px;border:10px solid transparent;border-left-color:#fff}
-.ln .prev{right:5px;border:10px solid transparent;border-right-color:#fff}
+.ln button{position:absolute;width:0;height:0;overflow:hidden;font-size:0;padding:0;top:50%;margin:-8px 0 0 0;width:10px;border:0;background:transparent;box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;opacity:.6}
+.ln .next{right:-5px;border:10px solid transparent;border-left-color:#000}
+.ln .prev{right:5px;border:10px solid transparent;border-right-color:#000}
 
 /* List */
 .lt,.lt ul{margin:0;padding:0;list-style:none}
