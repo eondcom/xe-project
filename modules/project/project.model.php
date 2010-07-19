@@ -214,10 +214,13 @@
 					$module_srls = array_keys($modules);
 					$args->module_srls = implode(",",$module_srls);
 					$output2 = executeQueryArray('module.getModulesInfo', $args);
-					foreach($output2->data as $module)
-					{
-						$modules[$module->module_srl] = $module->browser_title;
-					}
+                    if(count($output2->data))
+                    {
+                        foreach($output2->data as $module)
+                        {
+                            $modules[$module->module_srl] = $module->browser_title;
+                        }
+                    }
 				}
 			}
 			$output->sites = array_keys($sites);
