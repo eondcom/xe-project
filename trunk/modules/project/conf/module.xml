@@ -94,5 +94,6 @@
 
 		<action name="dispProjectMyProjectList" type="mobile" />
         <action name="dispProjectList" type="mobile" />
+        <action name="dispProjectInfo" type="mobile" />
     </actions>
 </module>

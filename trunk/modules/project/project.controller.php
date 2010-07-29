@@ -424,12 +424,6 @@
         function triggerApplyLayout(&$oModule) {
             global $lang;
 
-            // 관리자 메뉴 추가
-            /*$logged_info = Context::get('logged_info');
-            if(!$logged_info->is_site_admin) {
-                array_pop($lang->project_default_menus);
-            }*/
-
             // 팝업 레이아웃이면 패스
             if(!$oModule || $oModule->getLayoutFile()=='popup_layout.html') return new Object();
 
@@ -476,7 +470,14 @@
             Context::set('my_repos', $output->data);
 
             // 프로젝트 스킨 디렉토리 구함
-            $template_path = sprintf("%sskins/%s/",$this->module_path, $module_info->skin);
+			if(Mobile::isFromMobilePhone()) {
+				if(!$module_info->mskin) $module_info->mskin="default";
+				$template_path = sprintf("%sm.skins/%s/",$this->module_path, $module_info->mskin);
+			}
+			else
+			{
+				$template_path = sprintf("%sskins/%s/",$this->module_path, $module_info->skin);
+			}
             $oModule->module_info->layout_srl = null;
             $oModule->setLayoutPath($template_path);
             $oModule->setLayoutFile('project_layout');
