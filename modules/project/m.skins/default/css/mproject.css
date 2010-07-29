@@ -13,6 +13,9 @@ fieldset{border:0;margin:0;padding:0}
 input,textarea,select{font-size:16px}
 button{font-size:12px;cursor:pointer;background:#eee;border:1px solid #666;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;overflow:visible;padding:3px;text-shadow:1px 1px 0 #fff;box-shadow:0 0 2px #666;-moz-box-shadow:0 0 2px #666;-webkit-box-shadow:0 0 2px #666;text-decoration:none;font-weight:normal}
 select{width:90%}
+.ac{text-align:center}
+.sn{margin:10px;*zoom:1}
+.sn:after{content:"";display:block;clear:both}
 /* GNB */
 .gn,.gn ul{margin:0;padding:0;list-style:none}
 .gn li{margin:-1px 0;border:1px solid #999;border-left:0;border-right:0;vertical-align:top}
@@ -63,3 +66,7 @@ select{width:90%}
 .pn a,.pn strong{padding:5px 10px;display:inline-block;border:1px solid #ccc;text-decoration:none;background:#f8f8f8;color:#333}
 .pn a:visited{color:#666}
 .pn strong{border:0;background:none}
+/* Definition */
+.dl{margin:10px}
+.dl dt{margin:0;padding:0;font-weight:bold}
+.dl dd{margin:0 0 10px 0;padding:0;color:#666}
