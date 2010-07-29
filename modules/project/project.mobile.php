@@ -8,7 +8,7 @@ class projectMobile extends projectView {
 
 		if(!is_dir($template_path)||!$this->module_info->mskin) {
 			$this->module_info->mskin = 'default';
-			$template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->skin);
+			$template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->mskin);
 		}
 
 		$this->setTemplatePath($template_path);
@@ -90,6 +90,35 @@ class projectMobile extends projectView {
 	function dispProjectList() {
 		$this->_dispProjectListAll(10);	
 		$this->setTemplateFile('project_list');
+	}
+
+	function dispProject() {
+		$page = Context::get('page');
+		if(!$page) {
+			$page = 1;
+			Context::set('page', $page);
+		}
+		$oProjectModel =& getModel('project');
+		$output = $oProjectModel->getNewItems($page, $this->site_srl);
+		Context::set('modules', $output->modules);
+		Context::set('news_list', $output->data);
+		Context::set('page_navigation', $output->page_navigation);
+
+		$output = executeQueryArray("project.getNotices", $c_args);
+		if($output->data)
+		{
+			$documents = array();
+			$oDocumentModel =& getModel('document');
+			foreach($output->data as $data)
+			{
+				$oDocument = $oDocumentModel->getDocument(); 
+				$oDocument->setAttribute($data, false);
+				$documents[] = $oDocument;
+			}
+			Context::set('notices', $documents);
+		}
+
+		$this->setTemplateFile('project_home');
 	}
 
 	function dispProjectInfo() {
