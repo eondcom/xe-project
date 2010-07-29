@@ -211,4 +211,7 @@
 	$lang->news = "뉴스";
 
 	$lang->mobile_menu = array("dispProjectMySummary" => "내 프로젝트 소식", "dispProjectMyProjectList" => "내 프로젝트 목록", "dispProjectSummary" => "전체 프로젝트 소식", "dispProjectList" => "전체 프로젝트 목록");
+	$lang->mobile_pj_menu = array("최근 글"=> array('project', 'dispProjectIndex'), "프로젝트 정보" => array('project', 'dispProjectInfo'), '개발현황' => array('issuetracker','dispIssuetrackerViewMilestone'), '위키' => array('wiki','dispWikiContent'),
+								  '포럼' => array('forum','dispBoardContent'), '이슈 열람' => array('issuetracker', 'dispIssuetrackerViewIssue'), '이슈 등록' => array('issuetracker', 'dispIssuetrackerNewIssue'),
+								  '타임라인' => array('issuetracker','dispIssuetrackerTimeline') );
 ?>

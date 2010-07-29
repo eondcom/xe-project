@@ -53,6 +53,17 @@
 				$args->use_mobile = $vars->use_mobile;
 				if(!$args->use_mobile) $args->use_mobile = "N";
 
+				$output = executeQueryArray("project.getProjects");
+				if($output->data) {
+					$args_m->use_mobile = $args->use_mobile;
+					$site_srls = array();
+					foreach($output->data as $project)
+					{
+						$site_srls[] = $project->site_srl;
+					}
+					$oModuleController->updateModuleInSites(implode(",",$site_srls), $args_m);
+				}
+
                 $project_config = $oProjectModel->getConfig(0);
                 $mid = $project_config->project_main_mid;
                 $layout_srl = Context::get('layout_srl');
