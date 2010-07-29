@@ -5,6 +5,8 @@ class projectMobile extends projectView {
 
 	function init() {
 		$template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->mskin);
+		$this->site_module_info = Context::get('site_module_info');
+		$this->site_srl = $this->site_module_info->site_srl;
 
 		if(!is_dir($template_path)||!$this->module_info->mskin) {
 			$this->module_info->mskin = 'default';
@@ -93,6 +95,7 @@ class projectMobile extends projectView {
 	}
 
 	function dispProject() {
+		Context::set('act', 'dispProjectIndex');
 		$page = Context::get('page');
 		if(!$page) {
 			$page = 1;
@@ -122,6 +125,32 @@ class projectMobile extends projectView {
 	}
 
 	function dispProjectInfo() {
+		$oModuleModel = &getModel('module');
+		Context::set('site_admins', $oModuleModel->getSiteAdmin($this->site_srl));
+
+		$oProjectModel = &getModel('project');
+		$project_config = $oProjectModel->getConfig(0);
+		if($project_config->use_repos == 'Y')
+		{
+			$repos_info = $oProjectModel->getProjectReposInfo($this->site_srl);
+			if($repos_info->repos_id)
+			{
+				$repos_url = sprintf("http://%s/%s", $project_config->repos_url, $repos_info->repos_id);
+				Context::set("repos_url", $repos_url);
+			}
+		}
+
+		$c_args->site_srl = $this->site_srl;
+		$output = executeQueryArray("project.getProjectGroupMemberCount", $c_args);
+		Context::set('member_groups', $output->data);
+		$sum = 0;
+		if(!$output->data) $output->data = array();
+		foreach($output->data as $group)
+		{
+			$sum += $group->count;
+		}
+		Context::set('member_count', $sum);
+
 		$this->setTemplateFile('project_info.html');
 	}
 }
