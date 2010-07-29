@@ -24,3 +24,23 @@
 	<li class="fr"><a href="{getUrl('act','dispModuleChangeLang','oldact',$act)}">LANG</a></li>
 </ul>
 <p class="cr">Powered by XE</p>
+<script type="text/javascript"> 
+//<![CDATA[
+$(function($){
+	var lnb = $('.ln>ul');
+	if($('.ln').width() > lnb.width()){
+		$('.ln>button').hide();
+	}
+	$('.ln>button').click(function(){
+		var t = $(this);
+		if (t.hasClass('next')) {
+			lnb.animate({left:"-100%"},100);
+			$(this).removeClass('next').addClass('prev');
+		} else {
+			lnb.animate({left:"0"},100);
+			$(this).removeClass('prev').addClass('next');
+		}
+	});
+});
+//]]>
+</script> 
