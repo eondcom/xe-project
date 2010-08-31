@@ -6,11 +6,11 @@
     <!--@foreach($news_list as $news)-->
     <!--@if($news->type == "d")-->
     <li>
-	<a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">
-		<span class="title">{$projects[$news->site_srl]->title} &rsaquo; {$modules[$news->item->module_srl]} &rsaquo; <strong>{$news->item->title}</strong> <em>[{$news->item->comment_count}]</em></span>
-		<span class="auth"><em>{$news->item->nick_name}</em> <span class="time">{zdate($news->regdate, "Y.m.d")}</span></span>
-		<span class="summary">{cut_str(strip_tags($news->item->content), 800, '...') }</span>
-	</a>
+		<a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">
+			<span class="title">{$projects[$news->site_srl]->title} &rsaquo; {$modules[$news->item->module_srl]} &rsaquo; <strong>{$news->item->title}</strong> <em>[{$news->item->comment_count}]</em></span>
+			<span class="auth"><em>{$news->item->nick_name}</em> <span class="time">{zdate($news->regdate, "Y.m.d")}</span></span>
+			<span class="summary">{cut_str(strip_tags($news->item->content), 800, '...') }</span>
+		</a>
 	</li>
 	<!--@elseif($news->type == "c")-->
 	<li>
