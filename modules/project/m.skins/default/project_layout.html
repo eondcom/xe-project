@@ -1,8 +1,7 @@
-<!--%import("mx.css")-->
-<div class="eg hd">
+<div class="hd">
 	<h1 class="h1"><a href="{getSiteUrl($project_info->domain,'')}">{$project_info->title}</a></h1>
 	<!--@if($layout_info->menu->main_menu->menu_srl)-->
-	<div class="fr"><a href="{getUrl('act','dispMenuMenu','menu_srl',$layout_info->menu->main_menu->menu_srl)}" class="bn">{$lang->menu}</a></div>
+	<div class="fr"><a href="{getUrl('act','dispMenuMenu','menu_srl',$layout_info->menu->main_menu->menu_srl)}" class="mu">{$lang->menu}</a></div>
 	<!--@end-->
 </div>
 <div class="ln">
@@ -14,7 +13,7 @@
 	<button type="button" class="next" title="{$lang->more}"></button>
 </div>
 {$content}
-<ul class="eg ft">
+<ul class="ft">
 	<!--@if($is_logged)-->
 	<li class="fl"><a href="{getUrl('act','dispMemberLogout')}">{$lang->cmd_logout}</a></li>
 	<!--@elseif($act!='dispMemberLoginForm')-->
