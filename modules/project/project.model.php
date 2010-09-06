@@ -1,7 +1,7 @@
 <?php
     /**
      * @class  projectModel
-     * @author zero (zero@nzeo.com)
+     * @author NHN (developers@xpressengine.com)
      * @brief  project 모듈의  model class
      **/
 

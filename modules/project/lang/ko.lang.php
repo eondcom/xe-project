@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   modules/project/lang/ko.lang.php
-     * @author zero (zero@nzeo.com)
+     * @author NHN (developers@xpressengine.com)
      * @brief  ProjectXE(project) 모듈의 기본 언어팩
      **/
 
