@@ -1,7 +1,7 @@
 <?php
     /**
      * @class  projectSmartphone
-     * @author zero (skklove@gmail.com)
+     * @author NHN (developers@xpressengine.com)
      * @brief  project 모듈의 SmartPhone class
      **/
 

@@ -3,7 +3,7 @@
 	/**
 	 * @file projectXE.php
 	 * @brief projectXE script for make svn and account
-	 * @author zero <skklove@gmail.com>
+	 * @author NHN <developers@xpressengine.com>
 	 */
     if(isset($_SERVER['SERVER_PROTOCOL'])) die('invalid request');
 

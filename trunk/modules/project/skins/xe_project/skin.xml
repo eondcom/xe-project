@@ -15,10 +15,10 @@
     <version>1.0</version>
     <date>2010-04-26</date>
 
-    <author email_address="developers@xpressengine.com" link="http://www.xpressengine.com">
-        <name xml:lang="ko">XE</name>
-        <name xml:lang="zh-TW">XE</name>
-		<name xml:lang="en">XE</name>
+    <author email_address="developers@xpressengine.com" link="http://xpressengine.com/">
+        <name xml:lang="ko">NHN</name>
+        <name xml:lang="zh-TW">NHN</name>
+		<name xml:lang="en">NHN</name>
     </author>
 
     <license>GPL</license>
