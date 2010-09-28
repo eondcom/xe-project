@@ -47,6 +47,7 @@
                     <!--@endif-->
 				</tbody>
 			</table>
+            <!--@if($page_navigation)-->
 			<div class="pagination">
                 <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',1)}">&lsaquo; FIRST</a><!--@end-->
                 <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page-1)}">&lsaquo; PREV</a><!--@end-->
@@ -60,6 +61,7 @@
                 <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page+1)}">NEXT &rsaquo;</a><!--@end-->
                 <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->total_page)}">END &rsaquo;</a><!--@end-->
 			</div>
+            <!--@end-->
 			<div class="pxeH pxeNewsH">
 				<h2><em>모든 프로젝트</em> 소식</h2>
 			</div>
@@ -91,6 +93,7 @@
 				<!--@end-->
 			</dl>
             <!--@end-->
+            <!--@if($news_page_navigation)-->
 			<div class="pagination">
                 <!--@if($news_page_navigation->cur_news_page>1)--><a class="direction" href="{getUrl('news_page',$news_page_navigation->cur_news_page-1)}">&lsaquo; PREV</a><!--@end-->
                 <!--@while($news_page_no = $news_page_navigation->getNextPage())-->
@@ -102,6 +105,7 @@
                 <!--@end-->
                 <!--@if($news_page_navigation->cur_news_page<$news_page_navigation->total_news_page)--><a class="direction" href="{getUrl('news_page',$news_page_navigation->cur_news_page+1)}">NEXT &rsaquo;</a><!--@end-->
 			</div>
+            <!--@end-->
 		</div>
 		<!-- .pxeAside -->
 		<div class="pxeAside">
