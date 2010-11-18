@@ -476,7 +476,7 @@
 			}
 			else
 			{
-				$template_path = sprintf("%sskins/%s/",$this->module_path, $module_info->skin);
+				$template_path = sprintf("%sskins/%s/",$this->module_path, $project_config->skin);
 			}
             $oModule->module_info->layout_srl = null;
             $oModule->setLayoutPath($template_path);

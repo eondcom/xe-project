@@ -50,6 +50,13 @@
 				$logged_info = Context::get('logged_info');
 				$grant = $oModuleModel->getGrant($module_info, $logged_info);
 				if(!$grant->access) return $this->stop('msg_not_permitted');
+
+                $template_path = sprintf("%sskins/%s/",$this->module_path, $module_info->skin);
+                if(!is_dir($template_path)||!$module_info->skin) {
+                    $module_info->skin = 'xe_project';
+                    $template_path = sprintf("%sskins/%s/",$this->module_path, $module_info->skin);
+                }
+                $this->setTemplatePath($template_path);
 			}
 
 
@@ -74,14 +81,6 @@
                     $this->module_info = $module_info;
                     Context::set('module_info', $module_info);
                 }
-            } else {
-                // 템플릿 경로 지정
-                $template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
-                if(!is_dir($template_path)||!$this->module_info->skin) {
-                    $this->module_info->skin = 'xe_project';
-                    $template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
-                }
-                $this->setTemplatePath($template_path);
             }
 
 			if(Context::get('is_logged')) {
