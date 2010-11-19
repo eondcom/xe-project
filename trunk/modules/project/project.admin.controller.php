@@ -121,13 +121,13 @@
 
             $project_id = strip_tags(Context::get('project_id'));
             if(!$project_id) return new Object(-1,sprintf($lang->filter->isnull, $lang->project_id));
-            if(strlen($project_id)<4 || strlen($project_id)>12) return new Object(-1,'alert_project_id_size_is_wrong');
+            if(strlen($project_id)<3 || strlen($project_id)>12) return new Object(-1,'alert_project_id_size_is_wrong');
             if($oModuleModel->isIDExists($project_id)) return new Object(-1,'msg_not_enabled_id');
             if(!preg_match('/^([a-z0-9]+)$/i',$project_id)) return new Object(-1,'msg_wrong_project_id');
 
             $project_title = strip_tags(Context::get('project_title'));
             if(!$project_title) return new Object(-1,sprintf($lang->filter->isnull, $lang->project_title));
-            if(strlen($project_title)<4 || strlen($project_title)>20) return new Object(-1,'alert_project_title_size_is_wrong');
+            if(strlen($project_title)<3 || strlen($project_title)>20) return new Object(-1,'alert_project_title_size_is_wrong');
 
             $project_description = strip_tags(Context::get('project_description'));
             if(!$project_description) return new Object(-1,sprintf($lang->filter->isnull, $lang->project_description));
@@ -289,6 +289,7 @@
 
             // site의 index_module_srl 을 변경
             $site_args->site_srl = $info->site_srl;
+            $site_args->domain = $domain;
             $site_args->index_module_srl = $info->module->project_srl;
             $oModuleController->updateSite($site_args);
 
@@ -330,7 +331,6 @@
             $oAddonController->doInsert('referer', $info->site_srl);
             $oAddonController->doInsert('resize_image', $info->site_srl);
             $oAddonController->doInsert('wiki_link', $info->site_srl);
-            $oAddonController->doInsert('smartphone', $info->site_srl);
             $oAddonController->doActivate('autolink', $info->site_srl);
             $oAddonController->doActivate('counter', $info->site_srl);
             $oAddonController->doActivate('member_communication', $info->site_srl);
@@ -338,7 +338,6 @@
             $oAddonController->doActivate('referer', $info->site_srl);
             $oAddonController->doActivate('resize_image', $info->site_srl);
             $oAddonController->doActivate('wiki_link', $info->site_srl);
-            $oAddonController->doActivate('smartphone', $info->site_srl);
             $oAddonController->makeCacheFile($info->site_srl);
 
             // 기본 에디터 컴포넌트 On
