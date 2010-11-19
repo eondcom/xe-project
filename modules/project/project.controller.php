@@ -47,13 +47,13 @@
 
             $project_id = strip_tags(Context::get('project_id'));
             if(!$project_id) return new Object(-1,sprintf($lang->filter->isnull, $lang->project_id));
-            if(strlen($project_id)<4 || strlen($project_id)>12) return new Object(-1,'alert_project_id_size_is_wrong');
+            if(strlen($project_id)<3 || strlen($project_id)>12) return new Object(-1,'alert_project_id_size_is_wrong');
             if($oModuleModel->isIDExists($project_id)) return new Object(-1,'msg_not_enabled_id');
             if(!preg_match('/^([a-z0-9]+)$/i',$project_id)) return new Object(-1,'msg_wrong_project_id');
 
             $project_title = strip_tags(Context::get('project_title'));
             if(!$project_title) return new Object(-1,sprintf($lang->filter->isnull, $lang->project_title));
-            if(strlen($project_title)<4 || strlen($project_title)>20) return new Object(-1,'alert_project_title_size_is_wrong');
+            if(strlen($project_title)<3 || strlen($project_title)>20) return new Object(-1,'alert_project_title_size_is_wrong');
 
             $project_description = strip_tags(Context::get('project_description'));
             if(!$project_description) return new Object(-1,sprintf($lang->filter->isnull, $lang->project_description));
@@ -332,7 +332,7 @@
 
             $title = strip_tags(Context::get('project_title'));
             if(!$title) return new Object(-1,sprintf($lang->filter->isnull,$lang->project_title));
-            if(strlen($title)<4 || strlen($title)>20) return new Object(-1,'alert_project_title_size_is_wrong');
+            if(strlen($title)<3 || strlen($title)>20) return new Object(-1,'alert_project_title_size_is_wrong');
 
             $description = strip_tags(Context::get('project_description'));
             if(!$description) return new Object(-1,sprintf($lang->filter->isnull,$lang->project_description));

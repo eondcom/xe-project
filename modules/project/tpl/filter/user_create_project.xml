@@ -1,7 +1,7 @@
 <filter name="user_create_project" module="project" act="procProjectAdminCreation">
     <form>
-        <node target="project_id" required="true" filter="user_id" minlength="4" maxlength="12"/>
-        <node target="project_title" required="true" minlength="4" maxlength="20"/>
+        <node target="project_id" required="true" filter="user_id" minlength="3" maxlength="12"/>
+        <node target="project_title" required="true" minlength="3" maxlength="20"/>
         <node target="project_description" required="true" minlength="10" maxlength="200"/>
     </form>
     <response>
