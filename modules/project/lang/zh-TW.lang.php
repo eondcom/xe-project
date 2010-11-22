@@ -165,7 +165,7 @@
     $lang->about_project_admin = '設定專案管理員。<br/>管理頁面為 http://網址/?act=dispProjectManage';
     $lang->about_project_creation_type = '請選擇用戶建立專案時的訪問方式。網站 ID 可透過 http://網址/ID 訪問； 網域名稱則是輸入子域名 (http://domain.mydomain.net) 的方式訪問。';
     $lang->about_forum_description = '프로젝트에 대한 다양한 이야기를 나누는 포럼입니다.<br/>프로젝트는 좋은 의견과 참여로 발전할 수 있습니다';
-    $lang->about_project_id = '프로젝트 접속 아이디는 생성된 프로젝트의 주소로 사용됩니다.<br/>(3~12자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다)';
+    $lang->about_project_id = '프로젝트 접속 아이디는 생성된 프로젝트의 주소로 사용됩니다.<br/>(3~20자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다)';
     $lang->about_project_title = '請輸入專案標題。(3~20 之間)';
     $lang->about_project_description = '프로젝트를 소개할 수 있는 간단한 내용을 입력해주세요.<br/>가능하면 프로젝트의 특징과 정보를 알 수 있도록 해주시면 좋습니다. (10~200자 사이)';
     $lang->about_project_directory = '프로젝트를 손쉽게 찾아 갈 수 있도록 생성하시려는 프로젝트의 디렉토리를 설정해주세요.<br />프로젝트가 쉽게 찾아지고 활용될 수 있는데 매우 중요한 정보입니다';
@@ -176,7 +176,7 @@
     $lang->msg_need_one_group = '커밋 허용 그룹은 1개 이상 지정되어 있어야 합니다';
     $lang->msg_module_count_exceed = '허용된 모듈의 개수를 초과하였기에 생성할 수 없습니다';
     $lang->msg_not_enabled_id = 'ID 無法使用';
-    $lang->msg_wrong_project_id = '프로젝트 접속 아이디는 3~12자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다';
+    $lang->msg_wrong_project_id = '프로젝트 접속 아이디는 3~20자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다';
     $lang->msg_same_site = '동일한 가상 사이트의 모듈은 이동할 수가 없습니다';
     $lang->msg_no_data = '無註冊內容';
 
@@ -185,8 +185,8 @@
     $lang->confirm_delete_menu_item = '메뉴 항목 삭제시 연결되어 있는 게시판이나 페이지 모듈도 같이 삭제가 됩니다. 그래도 삭제하시겠습니까?';
 
     $lang->alert_permission_denied_to_create = '沒有專案建立權限';
-    $lang->alert_project_id_size_is_wrong = '專案 ID 長度必須在 4-12 個字之間。';
-    $lang->alert_project_title_size_is_wrong = '標題長度必須在 4-20 個字之間。';
+    $lang->alert_project_id_size_is_wrong = '專案 ID 長度必須在 3-20 個字之間。';
+    $lang->alert_project_title_size_is_wrong = '標題長度必須在 3-20 個字之間。';
     $lang->alert_project_description_size_is_wrong = '簡介內容最少輸入 10 個字最多 200 個字。';
 
     $lang->msg_notify_reserved_title = '專案註冊請求';
