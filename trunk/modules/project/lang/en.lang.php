@@ -159,7 +159,7 @@
     $lang->about_project_admin = 'Project 관리자를 설정할 수 있습니다.<br/>Project 관리자는 http://주소/?act=dispProjectManage 로 관리자 페이지로 접속할 수 있으며 존재하지 않는 사용자는 관리자로 등록되지 않습니다';
     $lang->about_project_creation_type = '사용자들이 프로젝트를 생성할때 프로젝트 접속 방법을 정해야 합니다. Site ID는 http://기본주소/ID 로 접속 가능하고 Domain 접속은 입력하신 도메인의 2차 도메인(http://domain.mydomain.net) 으로 프로젝트가 생성됩니다';
     $lang->about_forum_description = '프로젝트에 대한 다양한 이야기를 나누는 포럼입니다.<br/>프로젝트는 좋은 의견과 참여로 발전할 수 있습니다';
-    $lang->about_project_id = '프로젝트 접속 아이디는 생성된 프로젝트의 주소로 사용됩니다.<br/>(3~12자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다)';
+    $lang->about_project_id = '프로젝트 접속 아이디는 생성된 프로젝트의 주소로 사용됩니다.<br/>(3~20자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다)';
     $lang->about_project_title = '프로젝트의 제목을 입력해주세요. (3~20자 사이)';
     $lang->about_project_description = '프로젝트를 소개할 수 있는 간단한 내용을 입력해주세요.<br/>가능하면 프로젝트의 특징과 정보를 알 수 있도록 해주시면 좋습니다. (10~200자 사이)';
     $lang->about_project_directory = '프로젝트를 손쉽게 찾아 갈 수 있도록 생성하시려는 프로젝트의 디렉토리를 설정해주세요.<br />프로젝트가 쉽게 찾아지고 활용될 수 있는데 매우 중요한 정보입니다';
@@ -170,7 +170,7 @@
     $lang->msg_need_one_group = '커밋 허용 그룹은 1개 이상 지정되어 있어야 합니다';
     $lang->msg_module_count_exceed = '허용된 모듈의 개수를 초과하였기에 생성할 수 없습니다';
     $lang->msg_not_enabled_id = '사용할 수 없는 아이디입니다';
-    $lang->msg_wrong_project_id = '프로젝트 접속 아이디는 3~12자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다';
+    $lang->msg_wrong_project_id = '프로젝트 접속 아이디는 3~20자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다';
     $lang->msg_same_site = '동일한 가상 사이트의 모듈은 이동할 수가 없습니다';
     $lang->msg_no_data = '등록된 내용이 없습니다';
 
@@ -179,8 +179,8 @@
     $lang->confirm_delete_menu_item = '메뉴 항목 삭제시 연결되어 있는 게시판이나 페이지 모듈도 같이 삭제가 됩니다. 그래도 삭제하시겠습니까?';
 
     $lang->alert_permission_denied_to_create = '프로젝트를 생성할 수 있는 권한이 없습니다';
-    $lang->alert_project_id_size_is_wrong = '프로젝트 ID의 글자 길이는 4자 이상 12자 이하여야 합니다';
-    $lang->alert_project_title_size_is_wrong = '프로젝트 제목의 글자 길이는 4자 이상 20자 이하여야 합니다';
+    $lang->alert_project_id_size_is_wrong = '프로젝트 ID의 글자 길이는 3자 이상 20자 이하여야 합니다';
+    $lang->alert_project_title_size_is_wrong = '프로젝트 제목의 글자 길이는 3자 이상 20자 이하여야 합니다';
     $lang->alert_project_description_size_is_wrong = '프로젝트 설명의 글자 길이는 10자 이상 200자 이하여야 합니다';
 
     $lang->msg_notify_reserved_title = '프로젝트 등록 요청';
