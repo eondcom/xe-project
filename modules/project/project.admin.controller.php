@@ -23,15 +23,16 @@
             $vars = Context::getRequestVars();
             unset($vars->layout_srl);
 
-            $args->use_rss = $vars->use_rss;
-            $args->use_repos = $vars->use_repos;
-            $args->repos_url = $vars->repos_url;
             if($vars->site_srl) {
-                unset($vars->creation_group);
-                unset($vars->project_main_mid);
-                unset($vars->skin);
-                $oModuleController->insertModulePartConfig('project', $vars->site_srl, $args);
+                $config = $oModuleModel->getModulePartConfig('project', $vars->site_srl);
+                $config->use_rss = $vars->use_rss;
+                $config->use_repos = $vars->use_repos;
+                $config->repos_url = $vars->repos_url;
+                $oModuleController->insertModulePartConfig('project', $vars->site_srl, $config);
             }else {
+                $args->use_rss = $vars->use_rss;
+                $args->use_repos = $vars->use_repos;
+                $args->repos_url = $vars->repos_url;
 			    $args->creation_agreement = $vars->creation_agreement;
                 $args->access_type = $vars->access_type;
                 $args->default_domain = $vars->default_domain;
