@@ -121,7 +121,7 @@
 
             $project_id = strip_tags(Context::get('project_id'));
             if(!$project_id) return new Object(-1,sprintf($lang->filter->isnull, $lang->project_id));
-            if(strlen($project_id)<3 || strlen($project_id)>12) return new Object(-1,'alert_project_id_size_is_wrong');
+            if(strlen($project_id)<3 || strlen($project_id)>20) return new Object(-1,'alert_project_id_size_is_wrong');
             if($oModuleModel->isIDExists($project_id)) return new Object(-1,'msg_not_enabled_id');
             if(!preg_match('/^([a-z0-9]+)$/i',$project_id)) return new Object(-1,'msg_wrong_project_id');
 
