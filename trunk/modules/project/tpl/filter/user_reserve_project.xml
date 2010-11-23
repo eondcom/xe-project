@@ -1,6 +1,6 @@
 <filter name="user_reserve_project" module="project" act="procProjectReservation">
     <form>
-        <node target="project_id" required="true" filter="user_id" minlength="3" maxlength="12"/>
+        <node target="project_id" required="true" filter="user_id" minlength="3" maxlength="20"/>
         <node target="project_title" required="true" minlength="3" maxlength="20"/>
         <node target="project_description" required="true" minlength="10" maxlength="200"/>
         <node target="project_logo" required="true" />
