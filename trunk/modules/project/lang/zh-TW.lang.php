@@ -6,7 +6,7 @@
      **/
 
     $lang->project = 'ProjectXE';
-    $lang->project_id = "Project訪問 ID";
+    $lang->project_id = "Project ID";
     $lang->project_title = '專案標題';
     $lang->project_description = '簡介';
     $lang->project_logo = 'Logo 圖片';
@@ -209,4 +209,9 @@
 
 	$lang->activity_types = array("d" => "主題", "c" => "回覆", "s" => "提交", "a" => "할당된 이슈");
 	$lang->news = "News";
+
+	$lang->mobile_menu = array("dispProjectMySummary" => "내 프로젝트 소식", "dispProjectMyProjectList" => "내 프로젝트 목록", "dispProjectSummary" => "전체 프로젝트 소식", "dispProjectList" => "전체 프로젝트 목록");
+	$lang->mobile_pj_menu = array("최근 글"=> array('project', 'dispProjectIndex'), "프로젝트 정보" => array('project', 'dispProjectInfo'), '개발현황' => array('issuetracker','dispIssuetrackerViewMilestone'), '위키' => array('wiki','dispWikiContent'),
+								  '포럼' => array('forum','dispBoardContent'), '이슈 열람' => array('issuetracker', 'dispIssuetrackerViewIssue'), '이슈 등록' => array('issuetracker', 'dispIssuetrackerNewIssue'),
+								  '타임라인' => array('issuetracker','dispIssuetrackerTimeline') );
 ?>
