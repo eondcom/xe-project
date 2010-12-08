@@ -271,6 +271,7 @@
 		function dispPopularDownloads() {
 			$args->today = date("Ymd");
 			$args->weekago = date("Ymd", ztime(date("Ymd")) - 24*60*60*7);
+            $args->list_count = 20;
 			$output = executeQueryArray("project.getPopularDownloads", $args);
 			if(!$output->data) return;
 			$release_srls = array();
@@ -289,9 +290,16 @@
 
 			foreach($output->data as $key=>$data)
 			{
+                $item = $releases[$data->release_srl];
+                if(!$item->package_title) {
+                    unset($output->data[$key]);
+                    continue;
+                }
 				$output->data[$key]->item =  $releases[$data->release_srl]; 
+                $list[] = $output->data[$key];
+                if(count($list)>9) break;
 			}
-			Context::set('popular_downloads', $output->data);
+			Context::set('popular_downloads', $list);
 		}
 
         function _dispProjectListAll($list_count = 5)
