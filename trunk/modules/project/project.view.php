@@ -863,7 +863,33 @@
 
             $args->member_srl = $logged_info->member_srl;
             $output = executeQueryArray('project.getMemberRepos', $args);
-            Context::set('dev_repos', $output->data);
+			if(!$output->data) $output->data = array();
+			$my_project_list = $output->data;
+            Context::set('dev_repos', $my_project_list);
+
+			$output = executeQueryArray("project.getProjectMemberCount", $args);
+			if(!$output->data) $output->data = array();
+			$project_member_count_list = $output->data;
+
+			$member_count = array();
+			foreach($project_member_count_list as $k => $v)
+			{
+				$member_count[$v->site_srl] = $v->count;
+			}
+
+            Context::set('member_count', $member_count);
+
+			$output = executeQueryArray("project.getActivityPoints", $args);
+			if(!$output->data) $output->data = array();
+			$project_my_point = $output->data;
+
+			$member_point = array();
+			foreach($project_my_point as $k => $v)
+			{
+				$member_point[$v->site_srl] = $v->point;
+			}
+
+            Context::set('member_point', $member_point);
 
             Context::addJsFilter($this->module_path.'tpl/filter', 'update_account.xml');
             $this->setTemplateFile('account_manage');
