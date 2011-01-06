@@ -5,7 +5,7 @@
     </tables>
     <columns>
         <column name="site_srl" />
-		<column name="sum(cnt*points.point)" alias="point" />
+		<column name="sum(points.point)" alias="point" />
     </columns>
     <conditions>
         <condition operation="in" column="site_srl" var="site_srl" filter="number" notnull="notnull" />

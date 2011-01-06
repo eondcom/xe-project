@@ -13,7 +13,7 @@
 		<condition operation="equal" column="project_contribute.type" var="type" pipe="and" />
 	</conditions>
 	<groups>
-		<group column="member_srl" />
+		<group column="member.member_srl" />
 	</groups>
 	<navigation>
 		<index var="sort_index" default="sum" order="desc" />

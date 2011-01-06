@@ -20,7 +20,9 @@
                 <!--@if(count($dev_repos))-->
                     <ul style="padding:0; margin:0 0 0 20px;">
                     <!--@foreach($dev_repos as $key => $val)-->
-                        <li><a href="{getSiteUrl($val->domain,'')}" onclick="window.open(this.href);return false;">{$val->title}</a></li>
+                        <li><a href="{getSiteUrl($val->domain,'')}" onclick="window.open(this.href);return false;">{$val->title}</a>
+						<!-- {$member_count[$val->site_srl]}, {$member_point[$val->site_srl]} -->
+						</li>
                     <!--@end-->
                     </ul>
                 <!--@else-->

@@ -56,10 +56,12 @@
 		{
 			$args->release_srls = implode(",", $list);
 			$output2 = executeQueryArray("project.getReleases", $args);
-			foreach($output2->data as $doc)
-			{
-				$res[$doc->release_srl] = $doc;
-			}
+            if($output2->data){
+                foreach($output2->data as $doc)
+                {
+                    $res[$doc->release_srl] = $doc;
+                }
+            }
 		}
 
 		function _populateDocuments($list, &$res)
@@ -349,6 +351,7 @@
 				{
 					$output = executeQueryArray('project.getProjectListInSummary', $args);
 				}
+                //debugPrint($output);
 				if(!$output->data) return $output;
 				$site_srls = array();
 				foreach($output->data as $data)
@@ -549,7 +552,7 @@
 			$args->sort_index = $sort_order;
 			if($args->sort_index == "oldregdate")
 			{
-				$args->sort_index = "regdate";
+				$args->sort_index = "issue_releases.regdate";
 				$args->sort_order = "asc";
 			}
 			else

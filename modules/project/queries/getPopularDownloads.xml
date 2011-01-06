@@ -12,7 +12,7 @@
 		<condition operation="excess" column="regdate" var="weekago" notnull="notnull" pipe="and" />
 	</conditions>
 	<groups>
-		<group column="release_srl" />
+		<group column="target_srl" />
 	</groups>
 	<navigation>
 		<index var="sort_index" default="sum" order="desc" />

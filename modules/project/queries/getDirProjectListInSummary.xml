@@ -12,7 +12,7 @@
         <column name="projects.description" alias="project_description" />
         <column name="sites.domain" alias="domain" />
         <column name="sites.regdate" alias="regdate" />
-		<column name="sum(cnt*points.point)" alias="point" />
+		<column name="sum(points.point)" alias="point" />
     </columns>
     <conditions>
         <condition operation="equal" column="project_dir_maps.project_dir_srl" var="project_dir_srl" filter="number" notnull="notnull" />
