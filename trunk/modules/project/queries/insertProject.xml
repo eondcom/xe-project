@@ -8,5 +8,6 @@
         <column name="list_order" var="list_order" notnull="notnull" />
         <column name="regdate" default="curdate()" />
         <column name="rank" var="rank" />
+        <column name="point" default="0" />
     </columns>
 </query>

@@ -870,10 +870,7 @@
             Context::set('dev_repos', $my_project_list);
 			
 			// new
-			$output = executeQuery('project.getMyProjects',$args);
-			$my_project = $output->data;
-			Context::set('my_projects', $my_project);
-	
+			$my_projects = Context::get('my_projects');
 			if($my_projects)
 			{
 				$site_srls = array();

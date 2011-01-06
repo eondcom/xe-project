@@ -6,7 +6,7 @@
 	</tables>
 	<columns>
 		<column name="member.member_srl" />
-		<column name="sum(cnt*point)" alias="point" />
+		<column name="sum(points.point)" alias="point" />
 		<column name="member.nick_name" />
 	</columns>
 	<conditions>

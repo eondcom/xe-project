@@ -11,18 +11,20 @@
         <column name="projects.description" alias="project_description" />
         <column name="sites.domain" alias="domain" />
         <column name="sites.regdate" alias="regdate" />
-		<column name="sum(cnt*points.point)" alias="point" />
+		<column name="sum(points.point)" alias="point" />
     </columns>
     <conditions>
         <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" notnull="notnull" />
+        
+        <group pipe="and">
+            <condition operation="equal" column="points.type" default="contribute.type" pipe="and" />
+            <condition operation="equal" column="contribute.site_srl" default="projects.site_srl" pipe="and" />
+        </group>
+        
         <group pipe="and">
             <condition operation="like" column="projects.title" var="search_keyword" />
             <condition operation="like" column="projects.description" var="search_keyword" pipe="or" />
         </group>
-		<group pipe="and">
-			<condition operation="equal" column="contribute.type" default="points.type" />
-			<condition operation="equal" column="contribute.site_srl" default="projects.site_srl" pipe="and" />
-		</group>
     </conditions>
 	<groups>
 		<group column="sites.site_srl" />

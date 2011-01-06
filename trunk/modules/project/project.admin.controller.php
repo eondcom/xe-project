@@ -339,6 +339,7 @@
             $oAddonController->doActivate('referer', $info->site_srl);
             $oAddonController->doActivate('resize_image', $info->site_srl);
             $oAddonController->doActivate('wiki_link', $info->site_srl);
+            $oAddonController->doActivate('captcha', $info->site_srl);
             $oAddonController->makeCacheFile($info->site_srl);
 
             // 기본 에디터 컴포넌트 On
