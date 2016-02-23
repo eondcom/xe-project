@@ -1,0 +1,1 @@
+XE Project is a project hosting module for [XpressEngine](http://code.google.com/p/xe-core/).
